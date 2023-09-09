@@ -3,7 +3,7 @@ In-Development computer vision and machine learning project, hopefully to be a "
 
 Roboflow Dataset I created, used for "Chess Vision" (identifying pieces): <a href="https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-y2t9p"> <img src="https://app.roboflow.com/images/download-dataset-badge.svg"></img> </a> (images credit Daylen Yang under Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/.).
 
-Here's the Google Colab I'm using to train that CNN using Tensorflow: <a href=\"https://colab.research.google.com/github/Luca-Skyline/check4mate/blob/main/Chess_Piece_Detector.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>
+Here's the Google Colab I'm using to train that CNN using Tensorflow: <a href="https://colab.research.google.com/github/Luca-Skyline/check4mate/blob/main/Chess_Piece_Detector.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg"> </a>
 
 To-do:
 -Piece image classification model
