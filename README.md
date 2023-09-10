@@ -6,7 +6,8 @@ Roboflow Dataset I created, used for "Chess Vision" (identifying pieces). This i
 (images credit Daylen Yang under Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/.).
 
 Here's the Google Colab I'm using to train that CNN using Tensorflow: <br>
-<a href="https://colab.research.google.com/github/Luca-Skyline/check4mate/blob/main/Chess_Piece_Detector.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg"> </a>
+<a href="https://colab.research.google.com/github/Luca-Skyline/check4mate/blob/main/Chess_Piece_Detector.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg"> </a> <br>
+(I may not be using this if I end up using the Roboflow API)...
 
 To-do:
 - Piece image classification model
