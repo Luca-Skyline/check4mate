@@ -17,3 +17,12 @@ To-do:
 - Export to chess.com, lichess, etc.
 - Chess note scanner?
 - more to come...
+
+## Resources:
+Image dataset - [Daylen Yang](https://github.com/daylen/chess-id)
+
+ML/CV model training and fitting - [Roboflow?](https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-sv3nm)
+
+Free, open source chess analysis engine - [Stockfish](https://github.com/official-stockfish/Stockfish)
+
+more to come!!!!
