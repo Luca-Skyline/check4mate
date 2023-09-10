@@ -6,10 +6,10 @@ Roboflow Dataset I created, used for "Chess Vision" (identifying pieces): <a hre
 Here's the Google Colab I'm using to train that CNN using Tensorflow: <a href="https://colab.research.google.com/github/Luca-Skyline/check4mate/blob/main/Chess_Piece_Detector.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg"> </a>
 
 To-do:
--Piece image classification model
--Split chess board into squares and run that model on each one
--Incorporate stockfish so we can get a live analysis through the phone camera
--GUI/nav of app itself
--Export to chess.com, lichess, etc.
--Chess note scanner?
--more to come...
+- Piece image classification model
+- Split chess board into squares and run that model on each one
+- Incorporate stockfish so we can get a live analysis through the phone camera
+- GUI/nav of app itself
+- Export to chess.com, lichess, etc.
+- Chess note scanner?
+- more to come...
