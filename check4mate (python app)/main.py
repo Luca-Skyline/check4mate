@@ -2,6 +2,26 @@ import cv2
 import numpy as np
 from roboflow import Roboflow
 
+
+# Functions:
+def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
+    # uses math to find where the mean of 4 points in space
+    # useful for finding the intersection of two lines, each defined by two points
+    # or as a way to find the "center" of an irregular quadrilateral
+    x_intersect = ((((x1 * y2) - (y1 * x2)) * (x3 - x4)) -
+                   ((x1 - x2) * ((x3 * y4) - (y3 * x4)))
+                   ) / (((x1 - x2) * (y3 - y4)) - ((y1 - y2) * (x3 - x4)))  # see wikipedia line-line intersection page
+
+    y_intersect = ((((x1 * y2) - (y1 * x2)) * (y3 - y4)) -
+                   ((y1 - y2) * ((x3 * y4) - (y3 * x4)))
+                   ) / (((x1 - x2) * (y3 - y4)) - ((y1 - y2) * (x3 - x4)))  # see wikipedia line-line intersection page
+
+    return (int(x_intersect), int(y_intersect))  # returns a 2D point, (w/ int values)
+
+
+# ----
+
+
 img = cv2.imread('testTop.png')
 
 # Convert the img to grayscale
@@ -51,56 +71,57 @@ for r_theta in lines:
     # (0,0,255) denotes the colour of the line to be
     # drawn. In this case, it is red.
 
-    if abs(x1 - x2) > abs(y1 - y2): #is a horizontal line
+    if abs(x1 - x2) > abs(y1 - y2):  # is a horizontal line
         linesH.append([[x1, y1], [x2, y2]])
-    else: # is a vertical line
+    else:  # is a vertical line
         linesV.append([[x1, y1], [x2, y2]])
 
-    #cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
+    # cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
 # All the changes made in the input image are finally
 # written on a new image houghlines.jpg
 
-#sort lines greatest to least:
+# sort lines greatest to least:
 tempH = [[[0, 0], [0, 0]]]
 for line in linesH:
     for index, temp in enumerate(tempH):
         if line[0][1] > temp[0][1]:
-            if line[0][1] - temp[0][1] < 20: #duplicate line
+            if line[0][1] - temp[0][1] < 20:  # duplicate line
                 break
             tempH.insert(index, line)
-            #cv2.line(img, line[0], line[1], (0, 255, 0), 2)
+            # cv2.line(img, line[0], line[1], (0, 255, 0), 2)
             break
         if temp[0][1] - line[0][1] < 20:  # duplicate line
             break
-del tempH[len(tempH)-1] # take out that 0,0,0,0
+del tempH[len(tempH) - 1]  # take out that 0,0,0,0
 linesH = tempH
 
 tempV = [[[0, 0], [0, 0]]]
 for line in linesV:
     for index, temp in enumerate(tempV):
         if line[0][0] > temp[0][0]:
-            if line[0][0] - temp[0][0] < 20: #duplicate line
+            if line[0][0] - temp[0][0] < 20:  # duplicate line
                 break
             tempV.insert(index, line)
             break
         if temp[0][0] - line[0][0] < 20:  # duplicate line
             break
-del tempV[len(tempV)-1]
+del tempV[len(tempV) - 1]
 linesV = tempV
 
 while len(linesH) > 9:
-    #calculate average distance between lines:
+    # calculate average distance between lines:
     avg = 0
     for i in range(len(linesH) - 1):
-        avg += abs(linesH[i][0][1] - linesH[i+1][0][1])
+        avg += abs(linesH[i][0][1] - linesH[i + 1][0][1])
     avg /= len(linesH)
 
-    if abs(avg - abs(linesH[0][0][1] - linesH[1][0][1])) > abs(avg - abs(linesH[len(linesH)-2][0][1] - linesH[len(linesH)-1][0][1])):
-        #if top has more error than bottom
+    if abs(avg - abs(linesH[0][0][1] - linesH[1][0][1])) > abs(
+            avg - abs(linesH[len(linesH) - 2][0][1] - linesH[len(linesH) - 1][0][1])):
+        # if top has more error than bottom
         del linesH[0]
     else:
-        del linesH[len(linesH)-1]
+        del linesH[len(linesH) - 1]
 
 while len(linesV) > 9:
     # calculate average distance between lines:
@@ -116,15 +137,18 @@ while len(linesV) > 9:
     else:
         del linesV[len(linesV) - 1]
 
-for line in linesV+linesH:
+for line in linesV + linesH:
     cv2.line(img, line[0], line[1], (255, 0, 0), 2)
 
 cv2.imwrite('linesDetected.jpg', img)
 
+intersection_points = []  # will end up being a 2D list of "2D points" (therefore technically a 3D list)
 
 ##find intersection points:
 for x_line in range(9):
+    intersection_points.append([])  # new row of points
     for y_line in range(9):
+        # get 4 points, two from each line:
         x1 = linesH[x_line][0][0]
         y1 = linesH[x_line][0][1]
         x2 = linesH[x_line][1][0]
@@ -133,7 +157,12 @@ for x_line in range(9):
         y3 = linesV[y_line][0][1]
         x4 = linesV[y_line][1][0]
         y4 = linesV[y_line][1][1]
-        # x_intersect = (((x1*y2)-(y1*x2))*(x3-x4))-((x1-x2)*()) #see wikipedia line-line intersection page
+
+        intersection_points[x_line].append(
+            get_intersection(x1, x2, x3, x4, y1, y2, y3, y4))  # add point to row of points
+        cv2.circle(img, intersection_points[x_line][y_line], 5, (0, 0, 255), -1)
+
+cv2.imwrite('intersections.jpg', img)
 
 # rf = Roboflow(api_key="vANfmf7pkJ6NiXyLb2wK")
 # project = rf.workspace().project("chess-piece-detector-sv3nm")
