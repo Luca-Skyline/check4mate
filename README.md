@@ -15,7 +15,7 @@ To-do:
 - Incorporate stockfish so we can get a live analysis through the phone camera
 - GUI/nav of app itself
 - Export to chess.com, lichess, etc.
-- Chess note scanner?
+- Chess game note scanner using handwriting detection (and more segmentation 🫠)
 - more to come...
 
 ## Resources:
@@ -24,5 +24,7 @@ Image dataset - [Daylen Yang](https://github.com/daylen/chess-id)
 ML/CV model training and fitting - [Roboflow?](https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-sv3nm)
 
 Free, open source chess analysis engine - [Stockfish](https://github.com/official-stockfish/Stockfish)
+
+Handwriting detection with python - [handprint](https://pypi.org/project/handprint/)
 
 more to come!!!!
