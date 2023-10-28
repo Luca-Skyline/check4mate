@@ -29,7 +29,7 @@ Here's the Google Colab I'm using to train that CNN using Tensorflow: <br>
 - Incorporate stockfish so we can get a live analysis through the phone camera
 - GUI/nav of app itself
 - Export to chess.com, lichess, etc.
-- Chess game note scanner using handwriting detection (and more segmentation 🫠)
+- Chess game note scanner using handwriting detection (and more edge/line detection 🫠)
 - more to come...
 
 ## Resources:
