@@ -5,7 +5,7 @@ Roboflow Dataset I created, used for "Chess Vision" (identifying pieces). <br>
 <a href="https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-y2t9p"> <img src="https://app.roboflow.com/images/download-dataset-badge.svg"></img> </a> <br>
 (images credit Daylen Yang under Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/.).
 
-Here's the Google Colab I'm using to train that CNN using Tensorflow: <br>
+Here's the Google Colab I'm using to train that CNN using YOLOv5: <br>
 <a href="https://colab.research.google.com/drive/1VTXvUZuEtzxaH9c7gS56IFbabWYz_5A6#scrollTo=8t23YMrPsDKw"> <img src="https://colab.research.google.com/assets/colab-badge.svg"> </a> <br>
 
 ## Strategy:
