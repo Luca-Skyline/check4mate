@@ -5,7 +5,7 @@ from roboflow import Roboflow
 
 # Functions:
 def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
-    # uses math to find where the mean of 4 points in space
+    # uses math to find where the intersection of 4 points in space
     # useful for finding the intersection of two lines, each defined by two points
     # or as a way to find the "center" of an irregular quadrilateral
     x_intersect = ((((x1 * y2) - (y1 * x2)) * (x3 - x4)) -
@@ -45,37 +45,31 @@ for r_theta in lines:
     r, theta = arr
     # Stores the value of cos(theta) in a
     a = np.cos(theta)
-
     # Stores the value of sin(theta) in b
     b = np.sin(theta)
-
     # x0 stores the value rcos(theta)
     x0 = a * r
-
     # y0 stores the value rsin(theta)
     y0 = b * r
-
     # x1 stores the rounded off value of (rcos(theta)-1000sin(theta))
     x1 = int(x0 + 1000 * (-b))
-
     # y1 stores the rounded off value of (rsin(theta)+1000cos(theta))
     y1 = int(y0 + 1000 * (a))
-
     # x2 stores the rounded off value of (rcos(theta)+1000sin(theta))
     x2 = int(x0 - 1000 * (-b))
-
     # y2 stores the rounded off value of (rsin(theta)-1000cos(theta))
     y2 = int(y0 - 1000 * (a))
-
     # cv2.line draws a line in img from the point(x1,y1) to (x2,y2).
     # (0,0,255) denotes the colour of the line to be
     # drawn. In this case, it is red.
 
+    #end GfG code
+
+    #Find whether line is closer to horizontal or vertical
     if abs(x1 - x2) > abs(y1 - y2):  # is a horizontal line
         linesH.append([[x1, y1], [x2, y2]])
     else:  # is a vertical line
         linesV.append([[x1, y1], [x2, y2]])
-
     # cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
 # All the changes made in the input image are finally
@@ -163,6 +157,10 @@ for x_line in range(9):
         cv2.circle(img, intersection_points[x_line][y_line], 5, (0, 0, 255), -1)
 
 cv2.imwrite('intersections.jpg', img)
+
+##using intersection points, segment into 64 different images and warp crop them into squares:
+for image in range(64):
+    pass
 
 # rf = Roboflow(api_key="vANfmf7pkJ6NiXyLb2wK")
 # project = rf.workspace().project("chess-piece-detector-sv3nm")
