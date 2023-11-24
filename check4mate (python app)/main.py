@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import math
 from roboflow import Roboflow
 
 
@@ -152,25 +153,53 @@ for x_line in range(9):
         x4 = linesV[y_line][1][0]
         y4 = linesV[y_line][1][1]
 
+        # add point to row of points.
+        # get_intersection() is a custom function
+        # that returns a 2D point
+
         intersection_points[x_line].append(
-            get_intersection(x1, x2, x3, x4, y1, y2, y3, y4))  # add point to row of points
+            get_intersection(x1, x2, x3, x4, y1, y2, y3, y4))
         cv2.circle(img, intersection_points[x_line][y_line], 5, (0, 0, 255), -1)
 
 cv2.imwrite('intersections.jpg', img)
 
-##using intersection points, segment into 64 different images and warp crop them into squares:
-for image in range(64):
-    pass
+split_images = [] # will end up being a list of 64 images, each one a square of the board:
+# 0  1  2  3  4  5  6  7
+# 8  9  10 11 12 13 14 15
+# 16 17 18 19 20 21 22 23
+# 24 25 26 27 28 29 30 31
+# 32 33 34 35 36 37 38 39
+# 40 41 42 43 44 45 46 47
+# 48 49 50 51 52 53 54 55
+# 56 57 58 59 60 61 62 63
 
-# rf = Roboflow(api_key="vANfmf7pkJ6NiXyLb2wK")
-# project = rf.workspace().project("chess-piece-detector-sv3nm")
-# model = project.version(2).model
-#
-# # infer on a local image
-# print(model.predict("your_image.jpg").json())
-#
-# # infer on an image hosted elsewhere
-# print(model.predict("URL_OF_YOUR_IMAGE", hosted=True).json())
-#
-# # save an image annotated with your predictions
-# model.predict("your_image.jpg").save("prediction.jpg")
+# Using intersection points, segment into 64 different images and warp crop them into squares.
+# Then add to split_images...
+for i in range(64):
+    # pts1 = np.array([
+    #     intersection_points[math.floor(i / 8)][i % 8],              #top left
+    #     intersection_points[math.floor(i / 8)][(i % 8) + 1],        #top right
+    #     intersection_points[math.floor(i / 8) + 1][(i % 8) + 1],    #bottom right
+    #     intersection_points[math.floor(i / 8) + 1][(i % 8)]         #bottom left
+    # ], np.int32)
+    #
+
+    #
+    # pts2 = np.array([[0,0], [224, 0], [224, 0], [224, 224]], np.int32)
+    #
+    # matrix = cv2.getPerspectiveTransform(pts1, pts2)
+    # #split_images.append(cv2.warpPerspective(img, matrix, (224, 224)))
+    # cv2.imshow(f'Image {i}', cv2.warpPerspective(img, matrix, (224, 224)))
+
+    pts1 = np.float32([intersection_points[math.floor(i / 8)][i % 8], intersection_points[math.floor(i / 8)][(i % 8) + 1],
+                       intersection_points[math.floor(i / 8) + 1][(i % 8)], intersection_points[math.floor(i / 8) + 1][(i % 8) + 1]])
+    pts2 = np.float32([[0, 0], [224, 0],
+                       [0, 224], [224, 224]])
+
+    # Apply Perspective Transform Algorithm
+    matrix = cv2.getPerspectiveTransform(pts1, pts2)
+    split_images.append(cv2.warpPerspective(gray, matrix, (224, 224)))
+
+    cv2.imshow(f'Square {i}', split_images[i])
+    cv2.waitKey(0)
+
