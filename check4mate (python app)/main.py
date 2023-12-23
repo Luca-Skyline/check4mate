@@ -23,18 +23,19 @@ def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
 # ----
 
 
-img = cv2.imread('testTop.png')
+img = cv2.imread('board2.JPG')
 
 # Convert the img to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Apply edge detection method on the image
+edges = cv2.blur(gray.copy(), (7, 7))
 edges = cv2.Canny(gray, 50, 150, apertureSize=3)
 
 cv2.imwrite('edges.jpg', edges)
 
 # This returns an array of r and theta values
-lines = cv2.HoughLines(edges, 1, np.pi / 180, 150)
+lines = cv2.HoughLines(edges, 1, np.pi / 180, threshold=340)
 
 linesH, linesV = [], []
 
@@ -53,56 +54,67 @@ for r_theta in lines:
     # y0 stores the value rsin(theta)
     y0 = b * r
     # x1 stores the rounded off value of (rcos(theta)-1000sin(theta))
-    x1 = int(x0 + 1000 * (-b))
+    x1 = int(x0 + 4000 * (-b))
     # y1 stores the rounded off value of (rsin(theta)+1000cos(theta))
-    y1 = int(y0 + 1000 * (a))
+    y1 = int(y0 + 4000 * (a))
     # x2 stores the rounded off value of (rcos(theta)+1000sin(theta))
-    x2 = int(x0 - 1000 * (-b))
+    x2 = int(x0 - 4000 * (-b))
     # y2 stores the rounded off value of (rsin(theta)-1000cos(theta))
-    y2 = int(y0 - 1000 * (a))
-    # cv2.line draws a line in img from the point(x1,y1) to (x2,y2).
-    # (0,0,255) denotes the colour of the line to be
-    # drawn. In this case, it is red.
+    y2 = int(y0 - 4000 * (a))
 
     #end GfG code
 
     #Find whether line is closer to horizontal or vertical
     if abs(x1 - x2) > abs(y1 - y2):  # is a horizontal line
-        linesH.append([[x1, y1], [x2, y2]])
+        linesH.append([(x1, y1), (x2, y2)])
     else:  # is a vertical line
-        linesV.append([[x1, y1], [x2, y2]])
+        linesV.append([(x1, y1), (x2, y2)])
     # cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
 # All the changes made in the input image are finally
 # written on a new image houghlines.jpg
+all_lines = img.copy()
+for line in linesV + linesH:
+    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
+cv2.imwrite('houghlines.jpg', all_lines)
 
 # sort lines greatest to least:
-tempH = [[[0, 0], [0, 0]]]
+tempH = [[(0, 0), (0, 0)]]
 for line in linesH:
     for index, temp in enumerate(tempH):
+        if abs(((temp[0][1] + temp[1][1])/2) -
+               ((line[0][1] + line[1][1])/2)) < 100:  # duplicate line
+            break
         if line[0][1] > temp[0][1]:
-            if line[0][1] - temp[0][1] < 20:  # duplicate line
-                break
             tempH.insert(index, line)
             # cv2.line(img, line[0], line[1], (0, 255, 0), 2)
             break
-        if temp[0][1] - line[0][1] < 20:  # duplicate line
-            break
-del tempH[len(tempH) - 1]  # take out that 0,0,0,0
+
+del tempH[-1]  # take out that 0,0,0,0
 linesH = tempH
+
+all_lines = img.copy()
+for line in linesH:
+    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
+cv2.imwrite('pickedHorizontals.jpg', all_lines)
+
 
 tempV = [[[0, 0], [0, 0]]]
 for line in linesV:
     for index, temp in enumerate(tempV):
+        if abs(((temp[0][0] + temp[1][0])/2) -
+               ((line[0][0] + line[1][0])/2)) < 100:  # duplicate line
+            break
         if line[0][0] > temp[0][0]:
-            if line[0][0] - temp[0][0] < 20:  # duplicate line
-                break
             tempV.insert(index, line)
             break
-        if temp[0][0] - line[0][0] < 20:  # duplicate line
-            break
-del tempV[len(tempV) - 1]
+del tempV[-1]
 linesV = tempV
+
+all_lines = img.copy()
+for line in linesV:
+    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
+cv2.imwrite('pickedVerticals.jpg', all_lines)
 
 while len(linesH) > 9:
     # calculate average distance between lines:
@@ -133,7 +145,7 @@ while len(linesV) > 9:
         del linesV[len(linesV) - 1]
 
 for line in linesV + linesH:
-    cv2.line(img, line[0], line[1], (255, 0, 0), 2)
+    cv2.line(img, line[0], line[1], (255, 0, 0), 6)
 
 cv2.imwrite('linesDetected.jpg', img)
 
@@ -159,7 +171,7 @@ for x_line in range(9):
 
         intersection_points[x_line].append(
             get_intersection(x1, x2, x3, x4, y1, y2, y3, y4))
-        cv2.circle(img, intersection_points[x_line][y_line], 5, (0, 0, 255), -1)
+        cv2.circle(img, intersection_points[x_line][y_line], 10, (0, 0, 255), -1)
 
 cv2.imwrite('intersections.jpg', img)
 
@@ -193,8 +205,8 @@ for i in range(64):
 
     pts1 = np.float32([intersection_points[math.floor(i / 8)][i % 8], intersection_points[math.floor(i / 8)][(i % 8) + 1],
                        intersection_points[math.floor(i / 8) + 1][(i % 8)], intersection_points[math.floor(i / 8) + 1][(i % 8) + 1]])
-    pts2 = np.float32([[0, 0], [224, 0],
-                       [0, 224], [224, 224]])
+    pts2 = np.float32([[224, 224], [0, 224],
+                       [224, 0], [0, 0]])
 
     # Apply Perspective Transform Algorithm
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
