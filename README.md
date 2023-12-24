@@ -28,6 +28,7 @@ Here's the Google Colab I'm using to train that CNN using YOLOv5: <br>
 - Incorporate stockfish so we can get a live analysis through the phone camera
 - GUI/nav of app itself
 - Export to chess.com, lichess, etc.
+- Research APIs for liChess and Chess.com to see if there's a more sleek way to export positions/games to them...
 - Chess game note scanner using handwriting detection (and more edge/line detection 🫠)
 - more to come...
 
