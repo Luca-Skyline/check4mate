@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from fractions import Fraction
 import pandas as pd
 import math
 # from roboflow import Roboflow
@@ -83,6 +84,25 @@ cv2.imwrite('houghlines.jpg', all_lines)
 
 
 # NEW STRATEGY FOR FINDING THE CORRECT 18 LINES
+def test_line(currentLines, tLine, X):
+    distances = []
+    for oLine in currentLines:
+        dis = ((tLine[0][0] + tLine[1][0]) / 2) - ((oLine[0][0] + oLine[1][0])/2)
+        if dis < 20 or \
+                (dis > X and abs((X/dis) - round(X/dis)) > 0.1):
+            return False
+        if dis < X:
+            if abs((X / dis) - Fraction(X / dis).limit_denominator()) > 0.1:
+                return False
+            X = dis
+    return X
+
+def recursive_line_test(cLines, tLines, X):
+    for i, tLine in enumerate(tLines):
+        tempX = test_line(cLines, tLine, X)
+        if not tempX:
+            return False
+        recursive_line_test(cLines+tLine, tLines.pop(i), tempX)
 
 
 
