@@ -26,20 +26,18 @@ def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
 
 
 img = cv2.imread('board2.JPG')
-cv2.imshow('img', img)
-cv2.waitKey(0)
 
 # Convert the img to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Apply edge detection method on the image
-edges = cv2.blur(gray.copy(), (11,11))
-edges = cv2.Canny(edges, 50, 130, apertureSize=3)
+edges = cv2.blur(gray.copy(), (5,5))
+edges = cv2.Canny(edges, 50, 150, apertureSize=3)
 
 cv2.imwrite('edges.jpg', edges)
 
 # This returns an array of r and theta values
-lines = cv2.HoughLines(edges, 1, np.pi / 180, threshold=370)
+lines = cv2.HoughLines(edges, 1, np.pi / 180, threshold=250)
 
 linesH, linesV = [], []
 
@@ -69,9 +67,11 @@ for r_theta in lines:
     #end GfG code
 
     #Find whether line is closer to horizontal or vertical
-    if abs(x1 - x2) > abs(y1 - y2):  # is a horizontal line
+    if x1-x2 == 0:
+        linesV.append([(x1, y1), (x2, y2)])
+    elif y1 - y2 / x1 - x2 < 0.5:  # is a horizontal line
         linesH.append([(x1, y1), (x2, y2)])
-    else:  # is a vertical line
+    elif y1 - y2 / x1 - x2 > 2:  # is a vertical line
         linesV.append([(x1, y1), (x2, y2)])
     # cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
@@ -84,126 +84,136 @@ cv2.imwrite('houghlines.jpg', all_lines)
 
 
 # NEW STRATEGY FOR FINDING THE CORRECT 18 LINES
-def test_line(currentLines, tLine, X):
-    distances = []
-    for oLine in currentLines:
-        dis = ((tLine[0][0] + tLine[1][0]) / 2) - ((oLine[0][0] + oLine[1][0])/2)
-        if dis < 20 or \
-                (dis > X and abs((X/dis) - round(X/dis)) > 0.1):
-            return False
-        if dis < X:
-            if abs((X / dis) - Fraction(X / dis).limit_denominator()) > 0.1:
-                return False
-            X = dis
-    return X
+# def test_line(currentLines, tLine, X):
+#     for oLine in currentLines:
+#         dis = abs(((tLine[0][0] + tLine[1][0]) / 2) - ((oLine[0][0] + oLine[1][0])/2))
+#         if dis < 20 or \
+#                 (dis > X and abs((X/dis) - round(X/dis)) > 0.1):
+#             return False
+#         if dis < X or X == 0:
+#             if abs((X / dis) - Fraction(X / dis).limit_denominator()) > 0.05:
+#                 return False
+#             X = dis
+#     return X
+#
+#
+# def recursive_line_test(cLines, tLines, X):
+#     for i, tLine in enumerate(tLines):
+#         tempX = test_line(cLines, tLine, X)
+#         if not not tempX:   # trust me it makes sense
+#             if cLines >= 4:
+#
+#             recursive_line_test(cLines+tLine, tLines.pop(i), tempX)
+#             return len(cLines) + 1
+#
+#
+# for i in range(len(linesV)):
+#     for j in range(i+1, len(linesV)):
+#         if not i == j:
+#             result = recursive_line_test(linesV[i], linesV.pop(i), 0)
 
-def recursive_line_test(cLines, tLines, X):
-    for i, tLine in enumerate(tLines):
-        tempX = test_line(cLines, tLine, X)
-        if not tempX:
-            return False
-        recursive_line_test(cLines+tLine, tLines.pop(i), tempX)
+# sort lines greatest to least:
+tempH = [[(0, -100), (0, -100)]]
+for line in linesH:
+    for index, temp in enumerate(tempH):
+        if abs(((temp[0][1] + temp[1][1])/2) -
+               ((line[0][1] + line[1][1])/2)) < 50:  # duplicate line
+            break
+        if line[0][1] > temp[0][1]:
+            tempH.insert(index, line)
+            # cv2.line(img, line[0], line[1], (0, 255, 0), 2)
+            break
+
+del tempH[-1]  # take out that 0,0,0,0
+linesH = tempH
+
+all_lines = img.copy()
+for line in linesH:
+    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
+cv2.imwrite('pickedHorizontals.jpg', all_lines)
+
+print(len(linesV))
+tempV = [[(-100, 0), (-100, 0)]]
+for line in linesV:
+    for index, temp in enumerate(tempV):
+        if abs(((temp[0][0] + temp[1][0])/2) -
+               ((line[0][0] + line[1][0])/2)) < 50:  # duplicate line
+            printout = img.copy()
+            cv2.line(printout, line[0], line[1], (255, 255, 255), 5)
+            cv2.line(printout, temp[0], temp[1], (0, 255, 0), 5)
+            cv2.imshow('stuff', printout)
+            cv2.waitKey(0)
+            break
+        if line[0][0] > temp[0][0]:
+            tempV.insert(index, line)
+            break
+del tempV[-1]
+linesV = tempV
+
+all_lines = img.copy()
+for line in linesV:
+    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
+cv2.imwrite('pickedVerticals.jpg', all_lines)
+
+while len(linesH) > 9:
+    # calculate average distance between lines:
+    avg = 0
+    for i in range(len(linesH) - 1):
+        avg += abs(linesH[i][0][1] - linesH[i + 1][0][1])
+    avg /= len(linesH)
+
+    if abs(avg - abs(linesH[0][0][1] - linesH[1][0][1])) > abs(
+            avg - abs(linesH[len(linesH) - 2][0][1] - linesH[len(linesH) - 1][0][1])):
+        # if top has more error than bottom
+        del linesH[0]
+    else:
+        del linesH[len(linesH) - 1]
 
 
+while len(linesV) > 9:
+    # calculate average distance between lines:
+    avg = 0
+    for i in range(len(linesV) - 1):
+        avg += abs(linesV[i][0][0] - linesV[i + 1][0][0])
+    avg /= len(linesV)
 
+    if abs(avg - abs(linesV[0][0][0] - linesV[1][0][0])) > abs(
+            avg - abs(linesV[len(linesV) - 2][0][0] - linesV[len(linesV) - 1][0][0])):
+        # if top has more error than bottom
+        del linesV[0]
+    else:
+        del linesV[len(linesV) - 1]
 
-#
-# # sort lines greatest to least:
-# tempH = [[(0, 0), (0, 0)]]
-# for line in linesH:
-#     for index, temp in enumerate(tempH):
-#         if abs(((temp[0][1] + temp[1][1])/2) -
-#                ((line[0][1] + line[1][1])/2)) < 100:  # duplicate line
-#             break
-#         if line[0][1] > temp[0][1]:
-#             tempH.insert(index, line)
-#             # cv2.line(img, line[0], line[1], (0, 255, 0), 2)
-#             break
-#
-# del tempH[-1]  # take out that 0,0,0,0
-# linesH = tempH
-#
-# all_lines = img.copy()
-# for line in linesH:
-#     cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
-# cv2.imwrite('pickedHorizontals.jpg', all_lines)
-#
-#
-# tempV = [[[0, 0], [0, 0]]]
-# for line in linesV:
-#     for index, temp in enumerate(tempV):
-#         if abs(((temp[0][0] + temp[1][0])/2) -
-#                ((line[0][0] + line[1][0])/2)) < 100:  # duplicate line
-#             break
-#         if line[0][0] > temp[0][0]:
-#             tempV.insert(index, line)
-#             break
-# del tempV[-1]
-# linesV = tempV
-#
-# all_lines = img.copy()
-# for line in linesV:
-#     cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
-# cv2.imwrite('pickedVerticals.jpg', all_lines)
-#
-# while len(linesH) > 9:
-#     # calculate average distance between lines:
-#     avg = 0
-#     for i in range(len(linesH) - 1):
-#         avg += abs(linesH[i][0][1] - linesH[i + 1][0][1])
-#     avg /= len(linesH)
-#
-#     if abs(avg - abs(linesH[0][0][1] - linesH[1][0][1])) > abs(
-#             avg - abs(linesH[len(linesH) - 2][0][1] - linesH[len(linesH) - 1][0][1])):
-#         # if top has more error than bottom
-#         del linesH[0]
-#     else:
-#         del linesH[len(linesH) - 1]
-#
-# while len(linesV) > 9:
-#     # calculate average distance between lines:
-#     avg = 0
-#     for i in range(len(linesV) - 1):
-#         avg += abs(linesV[i][0][0] - linesV[i + 1][0][0])
-#     avg /= len(linesV)
-#
-#     if abs(avg - abs(linesV[0][0][0] - linesV[1][0][0])) > abs(
-#             avg - abs(linesV[len(linesV) - 2][0][0] - linesV[len(linesV) - 1][0][0])):
-#         # if top has more error than bottom
-#         del linesV[0]
-#     else:
-#         del linesV[len(linesV) - 1]
-#
-# for line in linesV + linesH:
-#     cv2.line(img, line[0], line[1], (255, 0, 0), 6)
-#
-# cv2.imwrite('linesDetected.jpg', img)
-#
-# intersection_points = []  # will end up being a 2D list of "2D points" (therefore technically a 3D list)
-#
-# ##find intersection points:
-# for x_line in range(9):
-#     intersection_points.append([])  # new row of points
-#     for y_line in range(9):
-#         # get 4 points, two from each line:
-#         x1 = linesH[x_line][0][0]
-#         y1 = linesH[x_line][0][1]
-#         x2 = linesH[x_line][1][0]
-#         y2 = linesH[x_line][1][1]
-#         x3 = linesV[y_line][0][0]
-#         y3 = linesV[y_line][0][1]
-#         x4 = linesV[y_line][1][0]
-#         y4 = linesV[y_line][1][1]
-#
-#         # add point to row of points.
-#         # get_intersection() is a custom function
-#         # that returns a 2D point
-#
-#         intersection_points[x_line].append(
-#             get_intersection(x1, x2, x3, x4, y1, y2, y3, y4))
-#         cv2.circle(img, intersection_points[x_line][y_line], 10, (0, 0, 255), -1)
-#
-# cv2.imwrite('intersections.jpg', img)
+for line in linesV + linesH:
+    cv2.line(img, line[0], line[1], (255, 0, 0), 6)
+
+cv2.imwrite('linesDetected.jpg', img)
+
+intersection_points = []  # will end up being a 2D list of "2D points" (therefore technically a 3D list)
+
+##find intersection points:
+for x_line in range(9):
+    intersection_points.append([])  # new row of points
+    for y_line in range(9):
+        # get 4 points, two from each line:
+        x1 = linesH[x_line][0][0]
+        y1 = linesH[x_line][0][1]
+        x2 = linesH[x_line][1][0]
+        y2 = linesH[x_line][1][1]
+        x3 = linesV[y_line][0][0]
+        y3 = linesV[y_line][0][1]
+        x4 = linesV[y_line][1][0]
+        y4 = linesV[y_line][1][1]
+
+        # add point to row of points.
+        # get_intersection() is a custom function
+        # that returns a 2D point
+
+        intersection_points[x_line].append(
+            get_intersection(x1, x2, x3, x4, y1, y2, y3, y4))
+        cv2.circle(img, intersection_points[x_line][y_line], 10, (0, 0, 255), -1)
+
+cv2.imwrite('intersections.jpg', img)
 
 # split_images = [] # will end up being a list of 64 images, each one a square of the board:
 # # 0  1  2  3  4  5  6  7
