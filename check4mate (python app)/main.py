@@ -69,9 +69,9 @@ for r_theta in lines:
     #Find whether line is closer to horizontal or vertical
     if x1-x2 == 0:
         linesV.append([(x1, y1), (x2, y2)])
-    elif y1 - y2 / x1 - x2 < 0.5:  # is a horizontal line
+    elif (y1 - y2) / (x1 - x2) < 0.2:  # is a horizontal line
         linesH.append([(x1, y1), (x2, y2)])
-    elif y1 - y2 / x1 - x2 > 2:  # is a vertical line
+    elif (y1 - y2) / (x1 - x2) > 1.5:  # is a vertical line
         linesV.append([(x1, y1), (x2, y2)])
     # cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
@@ -81,7 +81,14 @@ all_lines = img.copy()
 for line in linesV + linesH:
     cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
 cv2.imwrite('houghlines.jpg', all_lines)
-
+all_lines = img.copy()
+for line in linesH:
+    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
+cv2.imwrite('oghorz.jpg', all_lines)
+all_lines = img.copy()
+for line in linesV:
+    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
+cv2.imwrite('ogverts.jpg', all_lines)
 
 # NEW STRATEGY FOR FINDING THE CORRECT 18 LINES
 # def test_line(currentLines, tLine, X):
@@ -132,17 +139,12 @@ for line in linesH:
     cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
 cv2.imwrite('pickedHorizontals.jpg', all_lines)
 
-print(len(linesV))
+
 tempV = [[(-100, 0), (-100, 0)]]
 for line in linesV:
     for index, temp in enumerate(tempV):
         if abs(((temp[0][0] + temp[1][0])/2) -
                ((line[0][0] + line[1][0])/2)) < 50:  # duplicate line
-            printout = img.copy()
-            cv2.line(printout, line[0], line[1], (255, 255, 255), 5)
-            cv2.line(printout, temp[0], temp[1], (0, 255, 0), 5)
-            cv2.imshow('stuff', printout)
-            cv2.waitKey(0)
             break
         if line[0][0] > temp[0][0]:
             tempV.insert(index, line)
