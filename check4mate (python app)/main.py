@@ -69,9 +69,9 @@ for r_theta in lines:
     #Find whether line is closer to horizontal or vertical
     if x1-x2 == 0:
         linesV.append([(x1, y1), (x2, y2)])
-    elif (y1 - y2) / (x1 - x2) < 0.2:  # is a horizontal line
+    elif abs((y1 - y2) / (x1 - x2)) < 0.2:  # is a horizontal line
         linesH.append([(x1, y1), (x2, y2)])
-    elif (y1 - y2) / (x1 - x2) > 1.5:  # is a vertical line
+    elif abs((y1 - y2) / (x1 - x2)) > 1.5:  # is a vertical line
         linesV.append([(x1, y1), (x2, y2)])
     # cv2.line(img, (x1, y1), (x2, y2), (0, 0, 255), 3)
 
@@ -81,43 +81,6 @@ all_lines = img.copy()
 for line in linesV + linesH:
     cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
 cv2.imwrite('houghlines.jpg', all_lines)
-all_lines = img.copy()
-for line in linesH:
-    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
-cv2.imwrite('oghorz.jpg', all_lines)
-all_lines = img.copy()
-for line in linesV:
-    cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
-cv2.imwrite('ogverts.jpg', all_lines)
-
-# NEW STRATEGY FOR FINDING THE CORRECT 18 LINES
-# def test_line(currentLines, tLine, X):
-#     for oLine in currentLines:
-#         dis = abs(((tLine[0][0] + tLine[1][0]) / 2) - ((oLine[0][0] + oLine[1][0])/2))
-#         if dis < 20 or \
-#                 (dis > X and abs((X/dis) - round(X/dis)) > 0.1):
-#             return False
-#         if dis < X or X == 0:
-#             if abs((X / dis) - Fraction(X / dis).limit_denominator()) > 0.05:
-#                 return False
-#             X = dis
-#     return X
-#
-#
-# def recursive_line_test(cLines, tLines, X):
-#     for i, tLine in enumerate(tLines):
-#         tempX = test_line(cLines, tLine, X)
-#         if not not tempX:   # trust me it makes sense
-#             if cLines >= 4:
-#
-#             recursive_line_test(cLines+tLine, tLines.pop(i), tempX)
-#             return len(cLines) + 1
-#
-#
-# for i in range(len(linesV)):
-#     for j in range(i+1, len(linesV)):
-#         if not i == j:
-#             result = recursive_line_test(linesV[i], linesV.pop(i), 0)
 
 # sort lines greatest to least:
 tempH = [[(0, -100), (0, -100)]]
@@ -217,45 +180,45 @@ for x_line in range(9):
 
 cv2.imwrite('intersections.jpg', img)
 
-# split_images = [] # will end up being a list of 64 images, each one a square of the board:
-# # 0  1  2  3  4  5  6  7
-# # 8  9  10 11 12 13 14 15
-# # 16 17 18 19 20 21 22 23
-# # 24 25 26 27 28 29 30 31
-# # 32 33 34 35 36 37 38 39
-# # 40 41 42 43 44 45 46 47
-# # 48 49 50 51 52 53 54 55
-# # 56 57 58 59 60 61 62 63
-#
-# # Using intersection points, segment into 64 different images and warp crop them into squares.
-# # Then add to split_images...
-# for i in range(64):
-#     # pts1 = np.array([
-#     #     intersection_points[math.floor(i / 8)][i % 8],              #top left
-#     #     intersection_points[math.floor(i / 8)][(i % 8) + 1],        #top right
-#     #     intersection_points[math.floor(i / 8) + 1][(i % 8) + 1],    #bottom right
-#     #     intersection_points[math.floor(i / 8) + 1][(i % 8)]         #bottom left
-#     # ], np.int32)
-#     #
-#
-#     #
-#     # pts2 = np.array([[0,0], [224, 0], [224, 0], [224, 224]], np.int32)
-#     #
-#     # matrix = cv2.getPerspectiveTransform(pts1, pts2)
-#     # #split_images.append(cv2.warpPerspective(img, matrix, (224, 224)))
-#     # cv2.imshow(f'Image {i}', cv2.warpPerspective(img, matrix, (224, 224)))
-#
-#     pts1 = np.float32([intersection_points[math.floor(i / 8)][i % 8], intersection_points[math.floor(i / 8)][(i % 8) + 1],
-#                        intersection_points[math.floor(i / 8) + 1][(i % 8)], intersection_points[math.floor(i / 8) + 1][(i % 8) + 1]])
-#     pts2 = np.float32([[224, 224], [0, 224],
-#                        [224, 0], [0, 0]])
-#
-#     # Apply Perspective Transform Algorithm
-#     matrix = cv2.getPerspectiveTransform(pts1, pts2)
-#     split_images.append(cv2.warpPerspective(gray, matrix, (224, 224)))
-#
-#     cv2.imshow(f'Square {i}', split_images[i])
-#     cv2.waitKey(0)
+split_images = []   # will end up being a list of 64 images, each one a square of the board:
+# 0  1  2  3  4  5  6  7
+# 8  9  10 11 12 13 14 15
+# 16 17 18 19 20 21 22 23
+# 24 25 26 27 28 29 30 31
+# 32 33 34 35 36 37 38 39
+# 40 41 42 43 44 45 46 47
+# 48 49 50 51 52 53 54 55
+# 56 57 58 59 60 61 62 63
+
+# Using intersection points, segment into 64 different images and warp crop them into squares.
+# Then add to split_images...
+for i in range(64):
+    pts1 = np.array([
+        intersection_points[math.floor(i / 8)][i % 8],              #top left
+        intersection_points[math.floor(i / 8)][(i % 8) + 1],        #top right
+        intersection_points[math.floor(i / 8) + 1][(i % 8) + 1],    #bottom right
+        intersection_points[math.floor(i / 8) + 1][(i % 8)]         #bottom left
+    ], np.int32)
+
+
+    #
+    # pts2 = np.array([[0,0], [224, 0], [224, 0], [224, 224]], np.int32)
+    #
+    # matrix = cv2.getPerspectiveTransform(pts1, pts2)
+    # #split_images.append(cv2.warpPerspective(img, matrix, (224, 224)))
+    # cv2.imshow(f'Image {i}', cv2.warpPerspective(img, matrix, (224, 224)))
+
+    pts1 = np.float32([intersection_points[math.floor(i / 8)][i % 8], intersection_points[math.floor(i / 8)][(i % 8) + 1],
+                       intersection_points[math.floor(i / 8) + 1][(i % 8)], intersection_points[math.floor(i / 8) + 1][(i % 8) + 1]])
+    pts2 = np.float32([[224, 224], [0, 224],
+                       [224, 0], [0, 0]])
+
+    # Apply Perspective Transform Algorithm
+    matrix = cv2.getPerspectiveTransform(pts1, pts2)
+    split_images.append(cv2.warpPerspective(gray, matrix, (224, 224)))
+
+    cv2.imshow(f'Square {i}', split_images[i])
+    cv2.waitKey(0)
 #
 #     # test commit change :)
 
