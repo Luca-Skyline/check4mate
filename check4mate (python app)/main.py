@@ -3,7 +3,7 @@ import numpy as np
 from fractions import Fraction
 import pandas as pd
 import math
-# from roboflow import Roboflow
+import torch
 
 
 # Functions:
@@ -193,23 +193,12 @@ split_images = []   # will end up being a list of 64 images, each one a square o
 # Using intersection points, segment into 64 different images and warp crop them into squares.
 # Then add to split_images...
 for i in range(64):
-    pts1 = np.array([
-        intersection_points[math.floor(i / 8)][i % 8],              #top left
-        intersection_points[math.floor(i / 8)][(i % 8) + 1],        #top right
-        intersection_points[math.floor(i / 8) + 1][(i % 8) + 1],    #bottom right
-        intersection_points[math.floor(i / 8) + 1][(i % 8)]         #bottom left
-    ], np.int32)
 
-
-    #
-    # pts2 = np.array([[0,0], [224, 0], [224, 0], [224, 224]], np.int32)
-    #
-    # matrix = cv2.getPerspectiveTransform(pts1, pts2)
-    # #split_images.append(cv2.warpPerspective(img, matrix, (224, 224)))
-    # cv2.imshow(f'Image {i}', cv2.warpPerspective(img, matrix, (224, 224)))
-
-    pts1 = np.float32([intersection_points[math.floor(i / 8)][i % 8], intersection_points[math.floor(i / 8)][(i % 8) + 1],
-                       intersection_points[math.floor(i / 8) + 1][(i % 8)], intersection_points[math.floor(i / 8) + 1][(i % 8) + 1]])
+    pts1 = np.float32([
+        intersection_points[math.floor(i / 8)][i % 8],              # top left
+        intersection_points[math.floor(i / 8)][(i % 8) + 1],        # top right
+        intersection_points[math.floor(i / 8) + 1][(i % 8)],        # bottom left
+        intersection_points[math.floor(i / 8) + 1][(i % 8) + 1]])   # bottom right
     pts2 = np.float32([[224, 224], [0, 224],
                        [224, 0], [0, 0]])
 
@@ -217,8 +206,8 @@ for i in range(64):
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     split_images.append(cv2.warpPerspective(gray, matrix, (224, 224)))
 
-    cv2.imshow(f'Square {i}', split_images[i])
-    cv2.waitKey(0)
-#
-#     # test commit change :)
+
+
+
+
 
