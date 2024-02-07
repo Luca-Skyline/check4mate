@@ -206,8 +206,18 @@ for i in range(64):
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     split_images.append(cv2.warpPerspective(gray, matrix, (224, 224)))
 
+position = []
+#run analysis on image and add it to position array
 
-
-
+fen = ''
+i = 0
+while i < 64:
+    if position[i] != '-':
+        fen += position[i]
+    for j in range(1, 64-i):
+        if position[i+j] == '-':
+            fen += f'{i+j}'
+            i += j
+            break
 
 
