@@ -1,6 +1,8 @@
 # check4mate
 In-Development computer vision and machine learning project, hopefully to be a "Chess Vision" chess analysis app for iOs and Android.
 
+![Chess Board](https://github.com/Luca-Skyline/check4mate/blob/main/check4mate%20(python%20app)/intersections.jpg)
+
 Roboflow Dataset I created, used for "Chess Vision" (identifying pieces). <br>
 <a href="https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-sv3nm"> <img src="https://app.roboflow.com/images/download-dataset-badge.svg"></img> </a> <br>
 (images credit Daylen Yang under Open Data Commons Attribution License: http://opendatacommons.org/licenses/by/1.0/.).
