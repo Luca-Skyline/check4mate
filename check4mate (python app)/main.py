@@ -207,24 +207,32 @@ for i in range(64):
 
 position = []
 
-#import onnx
-# import onnxruntime as ort
-# onnx_model = onnx.load('efficientnet_b0.onnx')
-# onnx.checker.check_model(onnx_model)
+import onnx
+import onnxruntime as ort
+onnx_model = onnx.load('efficientnet_b0.onnx')
+onnx.checker.check_model(onnx_model)
+
+print(split_images[0].shape)
+
+ort_sess = ort.InferenceSession('efficientnet_b0.onnx')
+outputs = ort_sess.run(None, {'images': split_images[0]})
+
+
+predictions = outputs[0][0].argmax(0)
+print(predictions)
 
 for image in split_images:
     pass
-#run analysis on image and add it to position array
 
-fen = ''
-i = 0
-while i < 64:
-    if position[i] != '-':
-        fen += position[i]
-    for j in range(1, 64-i):
-        if position[i+j] == '-':
-            fen += f'{i+j}'
-            i += j
-            break
+# fen = ''
+# i = 0
+# while i < 64:
+#     if position[i] != '-':
+#         fen += position[i]
+#     for j in range(1, 64-i):
+#         if position[i+j] == '-':
+#             fen += f'{i+j}'
+#             i += j
+#             break
 
 
