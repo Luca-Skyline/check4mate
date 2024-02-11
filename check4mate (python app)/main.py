@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 from fractions import Fraction
-import pandas as pd
 import math
 import torch
 
@@ -207,6 +206,14 @@ for i in range(64):
     split_images.append(cv2.warpPerspective(gray, matrix, (224, 224)))
 
 position = []
+
+#import onnx
+# import onnxruntime as ort
+# onnx_model = onnx.load('efficientnet_b0.onnx')
+# onnx.checker.check_model(onnx_model)
+
+for image in split_images:
+    pass
 #run analysis on image and add it to position array
 
 fen = ''
