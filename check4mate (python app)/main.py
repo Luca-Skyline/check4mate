@@ -1,8 +1,11 @@
+# Author: Luca DalCanto | 2/14
+
 import cv2
 import numpy as np
 from fractions import Fraction
 import math
 import torch
+import os
 
 
 # Functions:
@@ -207,19 +210,11 @@ for i in range(64):
 
 position = []
 
-import onnx
-import onnxruntime as ort
-onnx_model = onnx.load('efficientnet_b0.onnx')
-onnx.checker.check_model(onnx_model)
+cv2.imwrite('image_0.jpg', split_images[0])
 
-print(split_images[0].shape)
-
-ort_sess = ort.InferenceSession('efficientnet_b0.onnx')
-outputs = ort_sess.run(None, {'images': split_images[0]})
+os.system("python predict.py --weights ChessPieceDetector.pt --source image_0.jpg")
 
 
-predictions = outputs[0][0].argmax(0)
-print(predictions)
 
 for image in split_images:
     pass
