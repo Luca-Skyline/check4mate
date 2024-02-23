@@ -212,8 +212,9 @@ position = []
 
 cv2.imwrite('image_0.jpg', split_images[0])
 
-os.system("python predict.py --weights ChessPieceDetector.pt --source image_0.jpg")
+os.system(f"python predict.py --weights ChessPieceDetector.pt --source image_0.jpg")
 
+# continue development on line 159 of predict.py :)
 
 
 for image in split_images:

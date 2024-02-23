@@ -33,8 +33,6 @@ import os
 import platform
 import sys
 from pathlib import Path
-import numpy as np
-import pandas as pd
 
 import torch
 import torch.nn.functional as F
@@ -79,7 +77,7 @@ def run(
     augment=False,  # augmented inference
     visualize=False,  # visualize features
     update=False,  # update all models
-    project=ROOT / "/runs/predict-cls",  # save results to project/name
+    project=ROOT / "runs/predict-cls",  # save results to project/name
     name="exp",  # save results to project/name
     exist_ok=False,  # existing project/name ok, do not increment
     half=False,  # use FP16 half-precision inference
@@ -153,9 +151,6 @@ def run(
 
             # Print results
             top5i = prob.argsort(0, descending=True)[:5].tolist()  # top 5 indices
-            ans_dict = {names[j]: np.float32(prob[j]) for j in top5i}
-            print(ans_dict)
-            ## pandas dataframe edit here (coming!!!)
             s += f"{', '.join(f'{names[j]} {prob[j]:.2f}' for j in top5i)}, "
 
             # Write results
