@@ -43,6 +43,8 @@ Free, open source chess analysis engine - [Stockfish](https://github.com/officia
 
 Handwriting detection with python - [handprint](https://pypi.org/project/handprint/)
 
-App UI Framework (compatible with both Android and iOS) - [kivy](https://github.com/kivy/kivy)
+[Resource for converting a django website into a pwa app for phones](https://github.com/silviolleite/django-pwa)
+
+~~App UI Framework (compatible with both Android and iOS) - [kivy](https://github.com/kivy/kivy)~~
 
 more to come!!!!
