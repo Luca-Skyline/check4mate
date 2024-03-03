@@ -7,6 +7,8 @@ import math
 import torch
 import os
 
+from predict import run
+
 
 # Functions:
 def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
@@ -26,8 +28,9 @@ def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
 
 # ----
 
+print('startcode')
 
-img = cv2.imread('board2.JPG')
+img = cv2.imread('board1.JPG')
 
 # Convert the img to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -182,7 +185,7 @@ for x_line in range(9):
 
 cv2.imwrite('intersections.jpg', img)
 
-split_images = []   # will end up being a list of 64 images, each one a square of the board:
+
 # 0  1  2  3  4  5  6  7
 # 8  9  10 11 12 13 14 15
 # 16 17 18 19 20 21 22 23
@@ -193,7 +196,9 @@ split_images = []   # will end up being a list of 64 images, each one a square o
 # 56 57 58 59 60 61 62 63
 
 # Using intersection points, segment into 64 different images and warp crop them into squares.
-# Then add to split_images...
+# Then run classification and add to position[] ...
+
+position = []
 for i in range(64):
 
     pts1 = np.float32([
@@ -206,19 +211,22 @@ for i in range(64):
 
     # Apply Perspective Transform Algorithm
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
-    split_images.append(cv2.warpPerspective(gray, matrix, (224, 224)))
+    cv2.imwrite('imgs/square.jpg', cv2.warpPerspective(gray, matrix, (224, 224)))
+    position.append(run(weights='ChessPieceDetector.pt', source="imgs/square.jpg"))
 
-position = []
+print(position)
 
-cv2.imwrite('image_0.jpg', split_images[0])
+for i, my_dict in enumerate(position):
+    if "empty" == my_dict[next(iter(my_dict))]:
+        position[i] = "empty"
+    if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
+        position[i] = "wp"
+    elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
+        position[i] = "bp"
+    else:
+        position[i] = next(iter(my_dict))
 
-os.system(f"python predict.py --weights ChessPieceDetector.pt --source image_0.jpg")
-
-# continue development on line 159 of predict.py :)
-
-
-for image in split_images:
-    pass
+print(position)
 
 # fen = ''
 # i = 0

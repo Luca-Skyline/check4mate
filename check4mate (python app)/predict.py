@@ -34,7 +34,6 @@ import platform
 import sys
 from pathlib import Path
 import numpy as np
-import pandas as pd
 
 import torch
 import torch.nn.functional as F
@@ -75,13 +74,13 @@ def run(
     device="",  # cuda device, i.e. 0 or 0,1,2,3 or cpu
     view_img=False,  # show results
     save_txt=False,  # save results to *.txt
-    nosave=False,  # do not save images/videos
+    nosave=True,  # do not save images/videos
     augment=False,  # augmented inference
     visualize=False,  # visualize features
     update=False,  # update all models
     project=ROOT / "/runs/predict-cls",  # save results to project/name
     name="exp",  # save results to project/name
-    exist_ok=False,  # existing project/name ok, do not increment
+    exist_ok=True,  # existing project/name ok, do not increment
     half=False,  # use FP16 half-precision inference
     dnn=False,  # use OpenCV DNN for ONNX inference
     vid_stride=1,  # video frame-rate stride
@@ -118,7 +117,7 @@ def run(
     vid_path, vid_writer = [None] * bs, [None] * bs
 
     # Run inference
-    model.warmup(imgsz=(1 if pt else bs, 3, *imgsz))  # warmup
+    model.warmup(imgsz=(1 if pt else bs, 1, *imgsz))  # warmup
     seen, windows, dt = 0, [], (Profile(device=device), Profile(device=device), Profile(device=device))
     for path, im, im0s, vid_cap, s in dataset:
         with dt[0]:
@@ -154,7 +153,6 @@ def run(
             # Print results
             top5i = prob.argsort(0, descending=True)[:5].tolist()  # top 5 indices
             ans_dict = {names[j]: np.float32(prob[j]) for j in top5i}
-            print(ans_dict)
             ## pandas dataframe edit here (coming!!!)
             s += f"{', '.join(f'{names[j]} {prob[j]:.2f}' for j in top5i)}, "
 
@@ -207,6 +205,7 @@ def run(
     if update:
         strip_optimizer(weights[0])  # update model (to fix SourceChangeWarning)
 
+    return ans_dict
 
 def parse_opt():
     parser = argparse.ArgumentParser()
