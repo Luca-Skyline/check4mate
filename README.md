@@ -25,8 +25,8 @@ Here's the Google Colab I'm using to train that CNN using YOLOv5: <br>
 - Assemble a UI display of the board, feed the file into a stockfish engine, or export it for use in  engines such as Chess.com or liChess!
 
 ## To-do:
-- Piece image classification model
-- Split chess board into squares and run that model on each one
+- ~~Piece image classification model~~ <-- still needs improvement on pawns
+- ~~Split chess board into squares and run that model on each one~~
 - Incorporate stockfish so we can get a live analysis through the phone camera
 - GUI/nav of app itself
 - Export to chess.com, lichess, etc.
