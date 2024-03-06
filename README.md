@@ -37,6 +37,8 @@ Here's the Google Colab I'm using to train that CNN using YOLOv5: <br>
 ## Resources:
 Image dataset - [Daylen Yang](https://github.com/daylen/chess-id)
 
+Website/App dev - Django
+
 ML/CV model training and fitting - [Roboflow?](https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-sv3nm)
 
 Free, open source chess analysis engine - [Stockfish](https://github.com/official-stockfish/Stockfish)
