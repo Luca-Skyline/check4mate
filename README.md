@@ -42,7 +42,7 @@ Website/App dev - Django
 
 ML/CV model training and fitting - [Roboflow?](https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-sv3nm)
 
-Free, open source chess analysis engine - [Stockfish](https://github.com/official-stockfish/Stockfish)
+Free, open source chess analysis engine - [Stockfish](https://python-chess.readthedocs.io/en/latest/engine.html)
 
 Handwriting detection with python - [handprint](https://pypi.org/project/handprint/)
 
