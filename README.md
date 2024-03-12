@@ -2,8 +2,6 @@
 In-Development computer vision and machine learning project, hopefully to be a "Chess Vision" chess analysis app for iOs and Android.
 
 <img src="UI Assets/logo.png" alt="logo" width="200" style="padding-right:20px;">
-[//]: # <img src="UI Assets/Camera.png" alt="camera" width="200"/><img src="UI Assets/House.png" alt="camera" width="200"/>
-[//]: # <img src="check4mate (python app)/intersections.jpg" alt="intersections" width="600"/>
 
 Roboflow Dataset I created, used for "Chess Vision" (identifying pieces). <br>
 <a href="https://universe.roboflow.com/luca-dalcanto-lrlwg/chess-piece-detector-sv3nm"> <img src="https://app.roboflow.com/images/download-dataset-badge.svg"></img> </a> <br>
