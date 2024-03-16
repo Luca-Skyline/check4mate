@@ -12,10 +12,10 @@ div{
 }
 
 label{
-  color: #4f4f4f;
+  color: #ECECEC;
   padding: 30px;
   font-family: Optima, sans-serif;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 
@@ -29,6 +29,7 @@ input {
     border-bottom: 2px solid #00a487;
     background-color: #363939;
     color: lightgrey;
+    font-size:17px;
 }
 
 img{
@@ -40,7 +41,7 @@ a{
 }
 
 p{
-  color: #4f4f4f;
+  color: #ECECEC;
   text-align: left;
   cursor: default;
   line-height: 1.8;
@@ -81,7 +82,7 @@ ul{
   cursor: default;
   line-height: 2;
   font-family: Optima, sans-serif;
-} 
+}
 
 ol{
   font-size: 25px;
@@ -523,7 +524,7 @@ footer{
   .topnav a.icon {
     float: right;
     display: block;
-    
+
   }
   .topnav.responsive .rightlinks{
     width:100%;
@@ -666,7 +667,7 @@ footer{
   .popup{
     width: 85%;
   }
-  
+
   .header .column:not(:first-child), .mainheader .column:not(:first-child) {display: none;}
 }
 
@@ -695,7 +696,7 @@ footer{
   .container{width: 626px; height: 318px;}
 
   .scontainer{width: 626px; height: 240px;}
-  
+
   .txtarea{
     width:55%;
   }

@@ -212,21 +212,22 @@ for i in range(64):
     # Apply Perspective Transform Algorithm
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     cv2.imwrite('imgs/square.jpg', cv2.warpPerspective(gray, matrix, (224, 224)))
-    position.append(run(weights='ChessPieceDetector.pt', source="imgs/square.jpg"))
+    position.append(run(weights='best.pt', source="imgs/square.jpg"))
 
 print(position)
 
 for i, my_dict in enumerate(position):
-    if "empty" == my_dict[next(iter(my_dict))]:
-        position[i] = "empty"
-    if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
-        position[i] = "wp"
-    elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
-        position[i] = "bp"
-    else:
-        position[i] = next(iter(my_dict))
+    pass
+    # if "empty" == my_dict[next(iter(my_dict))]:
+    #     position[i] = "empty"
+    # if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
+    #     position[i] = "wp"
+    # elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
+    #     position[i] = "bp"
+    # else:
+    #     position[i] = next(iter(my_dict))
 
-print(position)
+#print(position)
 
 # fen = ''
 # i = 0
