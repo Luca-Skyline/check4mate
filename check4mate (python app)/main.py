@@ -212,21 +212,21 @@ for i in range(64):
     # Apply Perspective Transform Algorithm
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     cv2.imwrite('imgs/square.jpg', cv2.warpPerspective(gray, matrix, (224, 224)))
-    position.append(run(weights='ChessPieceDetector3.pt', source="imgs/square.jpg"))
+    position.append(run(weights='ChessPieceDetector.pt', source="imgs/square.jpg"))
 
 print(position)
 
-# for i, my_dict in enumerate(position):
-#     if "empty" == my_dict[next(iter(my_dict))]:
-#         position[i] = "empty"
-#     if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
-#         position[i] = "wp"
-#     elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
-#         position[i] = "bp"
-#     else:
-#         position[i] = next(iter(my_dict))
+for i, my_dict in enumerate(position):
+    if "empty" == my_dict[next(iter(my_dict))]:
+        position[i] = "empty"
+    if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
+        position[i] = "wp"
+    elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
+        position[i] = "bp"
+    else:
+        position[i] = next(iter(my_dict))
 
-# print(position)
+print(position)
 
 for i, s in enumerate(position):
     if s[0] == 'w':
@@ -239,20 +239,21 @@ print(position)
 fen = ''
 i = 0
 j = 0
-while i < 8:
-    while j < 8:
-        for k in range(8-j):
-            if position[i+j+k] != 'blank':
-                if k == 0:
-                    fen += position[i+j+k]
-                    break
-
-    # if position[i] != 'blank':
-    #     fen += position[i]
-    # for j in range(0, 64-i):
-    #     if position[i+j] == '-':
-    #         fen += f'{i+j}'
-    #         i += j
-    #         break
+while i < 8: #current row
+    for k in range(8-j):
+        if position[(8*i)+j+k] != 'empty':
+            if k != 0:
+                fen += str(k)
+            fen += position[(8*i)+j+k]
+            j += k + 1
+            break
+        if j+k == 7:
+            fen += str(1 + k)
+            j = 8
+    if j == 8:
+        fen += '/'
+        j = 0
+        i += 1
+print(fen)
 
 
