@@ -1,4 +1,4 @@
-# Author: Luca DalCanto | 2/14
+# Author: Luca DalCanto | 3/17
 
 import cv2
 import numpy as np
@@ -30,7 +30,7 @@ def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
 
 print('startcode')
 
-img = cv2.imread('board1.JPG')
+img = cv2.imread('board3.JPG')
 
 # Convert the img to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -212,32 +212,47 @@ for i in range(64):
     # Apply Perspective Transform Algorithm
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     cv2.imwrite('imgs/square.jpg', cv2.warpPerspective(gray, matrix, (224, 224)))
-    position.append(run(weights='best.pt', source="imgs/square.jpg"))
+    position.append(run(weights='ChessPieceDetector3.pt', source="imgs/square.jpg"))
 
 print(position)
 
-for i, my_dict in enumerate(position):
-    pass
-    # if "empty" == my_dict[next(iter(my_dict))]:
-    #     position[i] = "empty"
-    # if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
-    #     position[i] = "wp"
-    # elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
-    #     position[i] = "bp"
-    # else:
-    #     position[i] = next(iter(my_dict))
+# for i, my_dict in enumerate(position):
+#     if "empty" == my_dict[next(iter(my_dict))]:
+#         position[i] = "empty"
+#     if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
+#         position[i] = "wp"
+#     elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
+#         position[i] = "bp"
+#     else:
+#         position[i] = next(iter(my_dict))
 
-#print(position)
+# print(position)
 
-# fen = ''
-# i = 0
-# while i < 64:
-#     if position[i] != '-':
-#         fen += position[i]
-#     for j in range(1, 64-i):
-#         if position[i+j] == '-':
-#             fen += f'{i+j}'
-#             i += j
-#             break
+for i, s in enumerate(position):
+    if s[0] == 'w':
+        position[i] = s[1].upper()
+    elif s[0] == 'b':
+        position[i] = s[1]
+
+print(position)
+
+fen = ''
+i = 0
+j = 0
+while i < 8:
+    while j < 8:
+        for k in range(8-j):
+            if position[i+j+k] != 'blank':
+                if k == 0:
+                    fen += position[i+j+k]
+                    break
+
+    # if position[i] != 'blank':
+    #     fen += position[i]
+    # for j in range(0, 64-i):
+    #     if position[i+j] == '-':
+    #         fen += f'{i+j}'
+    #         i += j
+    #         break
 
 
