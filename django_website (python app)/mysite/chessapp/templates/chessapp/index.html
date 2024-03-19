@@ -3,21 +3,28 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="project">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="language" content="English">
-  <meta name="author" content="vinayak sharma">
-
   <title>Check4Mate</title>
+
 
   <!-- main css -->
   <link rel="stylesheet" href="{% static 'chessapp/style.css' %}">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'chessapp/images/logo.png' %}" />
 </head>
 
 <body>
+    <div id="video-container">
+        <video id="video" autoplay></video>
+    </div>
 
+    <a class="cambutton"><img src="{% static 'chessapp/images/Camera.png' %}" width="100px"></a>
+
+    <div class="navbar" id="navbar">
+        <a href=""><img src="{% static 'chessapp/images/Camera.png' %}" width="100px"></a>
+        <a href=""><img src="{% static 'chessapp/images/House.png' %}" width="100px"></a>
+        <a href=""><img src="{% static 'chessapp/images/Share.png' %}" width="100px"></a>
+    </div>
+
+    <script type="text/javascript" src="{% static 'chessapp/video_camera.js' %}"></script>
 </body>
 
 </html>
