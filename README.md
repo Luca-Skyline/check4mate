@@ -1,7 +1,7 @@
 # check4mate
 In-Development computer vision and machine learning project, hopefully to be a "Chess Vision" chess analysis app for iOs and Android.
 
-<img src="UI Assets/logo.png" alt="logo" width="200" style="padding-right:20px;">
+<img src="django_website (python app)/mysite/chessapp/static/chessapp/images/logo.png" alt="logo" width="200" style="padding-right:20px;">
 
 <img src="check4mate (python app)/intersections.jpg" alt="Martin">
 
