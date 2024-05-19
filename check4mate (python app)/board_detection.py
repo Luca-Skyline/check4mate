@@ -9,6 +9,8 @@ import os
 
 from predict import run
 
+import stockfish
+#import chess
 
 # Functions:
 def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
@@ -28,11 +30,13 @@ def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
 
 # ----
 
-def board_to_fen(white_turn=True):
+
+
+def board_to_fen(image, white_turn=True):
 
     print('startcode')
 
-    img = cv2.imread('board3.JPG')
+    img = cv2.imread(image)
 
     # Convert the img to grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -216,7 +220,7 @@ def board_to_fen(white_turn=True):
         cv2.imwrite('imgs/square.jpg', cv2.warpPerspective(gray, matrix, (224, 224)))
         position.append(run(weights='ChessPieceDetector.pt', source="imgs/square.jpg"))
 
-    print(position)
+    #print(position)
 
     for i, my_dict in enumerate(position):
         if "empty" == my_dict[next(iter(my_dict))]:
@@ -228,7 +232,7 @@ def board_to_fen(white_turn=True):
         else:
             position[i] = next(iter(my_dict))
 
-    print(position)
+    #print(position)
 
     for i, s in enumerate(position):
         if s[0] == 'w':
@@ -236,7 +240,7 @@ def board_to_fen(white_turn=True):
         elif s[0] == 'b':
             position[i] = s[1]
 
-    print(position)
+    #print(position)
 
     fen = ''
     i = 0
@@ -262,7 +266,17 @@ def board_to_fen(white_turn=True):
     else:
         fen += ' b'
 
-    fen += ' - - 0 1'
+    fen += ' - - 10 10'
     return fen
 
 
+#engine = chess.engine.SimpleEngine.popen_uci("usr/local/Cellar/stockfish/")
+# board = chess.Board(board_to_fen('board3.JPG'))
+# print(board)
+
+def get_fen(image):
+    return board_to_fen(image=image)
+
+# fish = stockfish.Stockfish(path="/usr/local/Cellar/stockfish")
+
+print(get_fen('board3.JPG'))
