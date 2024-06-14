@@ -1,5 +1,5 @@
 body {
-  background-color: #363939;
+  background-color: #262626;
   color: black;
   height: auto;
   margin: 0;
@@ -147,6 +147,8 @@ iframe{
     margin-top: 20px;
     position: fixed;
     top: 60%;
+    left: 50%;
+    transform: translate(-71px, 0px);
 }
 
 .cambutton:hover {
@@ -242,6 +244,7 @@ iframe{
   transition-duration: 0.5s;
   border-radius: 5px;
   font-family: Optima, sans-serif
+  position: fixed;
 }
 
 .rightlinks{
