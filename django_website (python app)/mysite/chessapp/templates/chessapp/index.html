@@ -12,17 +12,19 @@
 </head>
 
 <body>
-    <div id="video-container">
-        <video id="video" autoplay></video>
-    </div>
+<!--    <div id="video-container">-->
+<!--        <video id="video" autoplay></video>-->
+<!--    </div>-->
 
-    <a class="cambutton"><img src="{% static 'chessapp/images/Camera.png' %}" width="100px"></a>
+    <a class="cambutton"><img src="{% static 'chessapp/images/Camera.png' %}" width="150px"></a>
 
     <div class="navbar" id="navbar">
-        <a href=""><img src="{% static 'chessapp/images/Camera.png' %}" width="50px"></a>
-        <a href=""><img src="{% static 'chessapp/images/House.png' %}" width="100px"></a>
-        <a href=""><img src="{% static 'chessapp/images/Share.png' %}" width="50px"></a>
+        <a href="" class="navbutton" style="transform: translate(-185px, -80px);"><img src="{% static 'chessapp/images/Camera.png' %}" width="70px"></a>
+        <a href="/profile" class="navbutton" style="transform: translate(-35px, -80px);"><img src="{% static 'chessapp/images/House.png' %}" width="70px"></a>
+        <a href="" class="navbutton" style="transform: translate(105px, -80px);"><img src="{% static 'chessapp/images/Share.png' %}" width="70px"></a>
     </div>
+
+
 
     <script type="text/javascript" src="{% static 'chessapp/video_camera.js' %}"></script>
 </body>

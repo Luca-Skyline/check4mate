@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 # from django.http import HttpRequest
 from .forms import UserRegisterForm
@@ -17,6 +18,15 @@ def index(request):
 
 @login_required()
 def profile(request):
-    return render(request, 'chessapp/profile.html', {})
 
+    username = request.user.username
 
+    context = {
+        'username': username,
+    }
+
+    return render(request, 'chessapp/profile.html', context=context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('/login')

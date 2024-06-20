@@ -137,23 +137,38 @@ iframe{
   width: 100%;
 }
 
+.login_frame {
+    width:90%;
+    margin-top: 30%;
+}
+
+.login_frame label{
+    font-size: 60px;
+}
+
+.login_frame input{
+    font-size: 60px;
+    margin-bottom: 5%;
+}
+
 .cambutton {
     border: white;
     border-width: 3px;
     background-color: #333333;
-    padding: 20px 20px;
-    border-radius: 80px;
+    padding: 40px 40px;
+    border-radius: 120px;
     border-style: solid;
     margin-top: 20px;
     position: fixed;
-    top: 60%;
+    top: 70%;
     left: 50%;
-    transform: translate(-71px, 0px);
+    transform: translate(-115px, 0px);
 }
 
 .cambutton:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.14), 0 17px 50px 0 rgba(0,0,0,0.09);
   border-width: 5px;
+  transform: translate(-73.5px, -2.5px);
 }
 
 .regbutton {
@@ -223,28 +238,26 @@ iframe{
   position: fixed;
   bottom: 0;
   width: 96%;
+  height: 90px;
   padding-left: 2%;
   padding-right: 2%;
-  overflow: hidden;
-  padding-top: 20px;
+  //overflow: hidden;
+  padding-top: 10px;
 }
 
 /* Style the links inside the navigation bar */
-.navbar a {
-  border: none;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 5px 12px;
-  margin-right: 6px;
-  margin-left: 6px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-decoration: none;
-  font-size: 18px;
-  transition-duration: 0.5s;
-  border-radius: 5px;
-  font-family: Optima, sans-serif
-  position: fixed;
+.navbutton {
+    //border: white;
+    //border-width: 3px;
+    //background-color: #333333;
+    //padding: 20px 20px;
+    //border-radius: 80px;
+   // border-style: solid;
+    //margin-top: 20px;
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    transform: translate(0px, -80px);
 }
 
 .rightlinks{
