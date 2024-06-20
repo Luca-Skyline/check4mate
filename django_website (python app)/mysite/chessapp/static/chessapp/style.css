@@ -77,12 +77,38 @@ ul{
 
 #video-container {
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    position: relative;
 }
 video {
     width: 100%;
-    height: auto;
+}
+
+#video-container div{
+    border: 12px solid #FFFFFF;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    transform:translate(-12px, 0px);
+}
+
+#video-container div p{
+    text-align:center;
+    opacity: 0.0;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 100px;
+    font-size: 100px;
+    animation-name: fade_out;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes fade_out{
+    0%  {opacity: 1.0;}
+    80%  {opacity: 1.0;}
+    100% {opacity: 0.0;}
 }
 
 .textlist{   /* ul for normal paragraphs */
@@ -165,11 +191,13 @@ iframe{
     transform: translate(-115px, 0px);
 }
 
-.cambutton:hover {
+
+.cambutton:active {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.14), 0 17px 50px 0 rgba(0,0,0,0.09);
   border-width: 5px;
   transform: translate(-73.5px, -2.5px);
 }
+
 
 .regbutton {
   font-family: Optima, sans-serif;
