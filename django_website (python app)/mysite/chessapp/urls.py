@@ -10,5 +10,6 @@ urlpatterns = [
     path("profile/", views.profile, name="profile"),
     path("logout/", views.logout_view, name="logout_view"),
     path("login/", auth_views.LoginView.as_view(next_page='/')),
+    path('save_image/', views.save_image, name='save_image'),
     #path("signup/", views.signup, name="signup")
 ]
