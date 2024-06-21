@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/mysite/chessapp/static/chessapp/video_camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/static/chessapp/video_camera.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
