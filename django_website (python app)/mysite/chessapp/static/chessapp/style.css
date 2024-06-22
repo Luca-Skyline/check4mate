@@ -259,11 +259,11 @@ iframe{
   position: fixed;
   bottom: 0;
   width: 96%;
-  height: 90px;
+  height: 135px;
   padding-left: 2%;
   padding-right: 2%;
   //overflow: hidden;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 /* Style the links inside the navigation bar */

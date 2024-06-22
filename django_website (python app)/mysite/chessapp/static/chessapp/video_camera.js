@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Get access to the camera
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }})
         .then(function (stream) {
             var video = document.getElementById('video');
             video.srcObject = stream;
