@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function (stream) {
             var video = document.getElementById('video');
             video.srcObject = stream;
+            video.playsInline = true;
+            video.play();
         })
         .catch(function (error) {
             console.error("Error accessing the camera: ", error);
@@ -62,5 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         };
         xhr.send('image_data=' + encodeURIComponent(imageData));
+        window.location.href = '/analysis'
     });
 });

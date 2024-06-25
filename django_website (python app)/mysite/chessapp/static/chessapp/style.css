@@ -81,6 +81,12 @@ ul{
 }
 video {
     width: 100%;
+    object-fit: cover; /* Ensures video fills its container */
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Adjust height as needed */
+    display: block; /* Ensures block display */
+    position: relative; /* Ensures relative positioning */
+    z-index: 0; /* Ensures proper layering */
 }
 
 #video-container div{
