@@ -14,10 +14,8 @@
 
 <body>
 
-<p>The AI will now begin scanning your image :)</p>
-
     {% block content %}
-    <img src="data:image/png;base64,{{ image.read|b64encode }}" alt="Image" class="">
+    <img src="data:image/png;base64,{{ image.read|b64encode }}" alt="Image" class="displayed_image">
     {% endblock %}
 
 </body>

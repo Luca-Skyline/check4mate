@@ -89,6 +89,13 @@ video {
     z-index: 0; /* Ensures proper layering */
 }
 
+.displayed_image{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
 #video-container div{
     border: 12px solid #FFFFFF;
     top: 5%;
