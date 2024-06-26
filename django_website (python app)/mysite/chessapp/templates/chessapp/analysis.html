@@ -1,21 +1,23 @@
 {% load static %}
+{% load base64_filters %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>Check4Mate</title>
-  <meta name="csrf-token" content="{% csrf_token %}">
+<!--  <meta name="csrf-token" content="{% csrf_token %}">-->
 
 
   <!-- main css -->
   <link rel="stylesheet" href="{% static 'chessapp/style.css' %}">
-	<link rel="shortcut icon" type="image/x-icon" href="{% static 'chessapp/images/logo.png' %}" />
 </head>
 
 <body>
 
+<p>The AI will now begin scanning your image :)</p>
+
     {% block content %}
-    <img src="data:image/png;base64,{{ base64_image }}" alt="Image">
+    <img src="data:image/png;base64,{{ image.read|b64encode }}" alt="Image" class="">
     {% endblock %}
 
 </body>

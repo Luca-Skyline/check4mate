@@ -1,12 +1,11 @@
 import base64
 import cv2
 import numpy as np
+from PIL import Image
+import io
 
-def trim_image(image_text):
+def trim_image(image_data):
 
-    #image_text = image_text[22:]
-
-    image_data = base64.b64decode(image_text)
     nparr = np.frombuffer(image_data, np.uint8)
 
     image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
@@ -14,9 +13,9 @@ def trim_image(image_text):
     height, width = image.shape[:2]
 
     left = int(0.05 * width)
-    right = int(width - left)
-    top = int(left)
-    bottom = int(right)
+    right = int(0.95 * width)
+    top = int(0.05 * width) + 12
+    bottom = top + int(0.90 * width)
 
     cropped_image = image[top:bottom, left:right]
 

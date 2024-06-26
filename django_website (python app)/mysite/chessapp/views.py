@@ -12,6 +12,9 @@ from django.http import JsonResponse
 from .models import CapturedImage
 from .scripts import trim_image
 from django.http import HttpResponseRedirect
+from django.core.files.base import ContentFile
+import base64
+
 
 
 # Create your views here.
@@ -23,30 +26,23 @@ def index(request):
 @login_required()
 def save_image(request):
     if request.method == 'POST':
-        image_data = request.POST.get('image_data')
-        image_data = trim_image(image_data)
-        captured_image = CapturedImage(image=image_data)
-        captured_image.save()
-
-        request.session['captured_image'] = image_data
-        return
-
-    return JsonResponse({'error': 'Image capture failed.'})
+        image_file = request.FILES['image']
+        image_data = image_file.read()
+        encoded_image_data = trim_image(image_data) # base64.b64encode(image_data).decode('utf-8')
+        request.session['image_data'] = encoded_image_data
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
 @login_required()
 def analysis(request):
-
-    if request.method == 'POST':
-        print("houston we have a problem")
-
-    print('analysis board time!')
-
-    image_data = request.session.get('captured_image', None)
-
-    context = {
-        'base64_image': image_data
-    }
-    return render(request, 'chessapp/analysis.html', context=context)
+    encoded_image_data = request.session.get('image_data')
+    if encoded_image_data:
+        image_data = base64.b64decode(encoded_image_data)
+        image = ContentFile(image_data, 'capture.png')
+        # Process the image as needed
+    else:
+        image = None
+    return render(request, 'chessapp/analysis.html', {'image': image})
 
 
 @login_required()
