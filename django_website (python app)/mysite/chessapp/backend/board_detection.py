@@ -299,9 +299,6 @@ def run_analysis(fen):
     else:
         raise Exception(f"Error fetching analysis: {response.status_code} {response.text}")
 
-
-fen = get_fen('board3.JPG')
-print(fen)
 # try:
 #     best_moves = run_analysis('rnbqkbnr/1ppp1pp1/p6p/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 4')
 #     print(best_moves)

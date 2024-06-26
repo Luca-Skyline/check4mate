@@ -79,6 +79,7 @@ ul{
     width: 100%;
     position: relative;
 }
+
 video {
     width: 100%;
     object-fit: cover; /* Ensures video fills its container */

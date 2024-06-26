@@ -14,6 +14,7 @@ from .scripts import trim_image
 from django.http import HttpResponseRedirect
 from django.core.files.base import ContentFile
 import base64
+from backend.board_detection import board_to_fen
 
 
 
@@ -28,7 +29,7 @@ def save_image(request):
     if request.method == 'POST':
         image_file = request.FILES['image']
         image_data = image_file.read()
-        encoded_image_data = trim_image(image_data) # base64.b64encode(image_data).decode('utf-8')
+        encoded_image_data = trim_image(image_data)
         request.session['image_data'] = encoded_image_data
         return JsonResponse({'success': True})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
@@ -39,7 +40,7 @@ def analysis(request):
     if encoded_image_data:
         image_data = base64.b64decode(encoded_image_data)
         image = ContentFile(image_data, 'capture.png')
-        # Process the image as needed
+        # position = board_to_fen(image)
     else:
         image = None
     return render(request, 'chessapp/analysis.html', {'image': image})
