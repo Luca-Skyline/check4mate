@@ -12,11 +12,8 @@ from django.http import JsonResponse
 from .models import CapturedImage
 from .scripts import trim_image
 from django.http import HttpResponseRedirect
-from django.core.files.base import ContentFile
 import base64
-from backend.board_detection import board_to_fen
-
-
+from .backend.board_detection import board_to_fen
 
 # Create your views here.
 
@@ -39,8 +36,8 @@ def analysis(request):
     encoded_image_data = request.session.get('image_data')
     if encoded_image_data:
         image_data = base64.b64decode(encoded_image_data)
-        image = ContentFile(image_data, 'capture.png')
-        # position = board_to_fen(image)
+
+        print(board_to_fen(image_data))
     else:
         image = None
     return render(request, 'chessapp/analysis.html', {'image': image})
@@ -61,3 +58,4 @@ def profile(request):
 def logout_view(request):
     logout(request)
     return redirect('/login')
+

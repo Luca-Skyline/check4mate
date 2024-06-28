@@ -5,167 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5adf658-9534-4bbc-b8b9-64d6bdfb9ce9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/.idea/check4Mate.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/CITATION.cff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/ChessPieceDetector.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/ChessPieceDetector2.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/ChessPieceDetector3.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/benchmarks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/best.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/board1.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/board2.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/board3.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/board_detection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/classify/predict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/classify/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/classify/tutorial.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/classify/val.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/Argoverse.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/GlobalWheat2020.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/ImageNet.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/ImageNet10.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/ImageNet100.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/ImageNet1000.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/Objects365.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/SKU-110K.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/VOC.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/VisDrone.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/coco.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/coco128-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/coco128.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/hyps/hyp.Objects365.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/hyps/hyp.VOC.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/hyps/hyp.no-augmentation.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/hyps/hyp.scratch-high.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/hyps/hyp.scratch-low.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/hyps/hyp.scratch-med.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/images/bus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/images/zidane.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/scripts/download_weights.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/scripts/get_coco.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/scripts/get_coco128.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/scripts/get_imagenet.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/scripts/get_imagenet10.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/scripts/get_imagenet100.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/scripts/get_imagenet1000.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/data/xView.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/detect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/edges.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/efficientnet_b0.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/export.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/houghlines.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/hubconf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/imgs/square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/intersections.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/linesDetected.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/experimental.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/anchors.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov3-spp.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov3-tiny.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov3.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5-bifpn.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5-fpn.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5-p2.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5-p34.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5-p6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5-p7.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5-panet.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5l6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5m6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5n6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5s-LeakyReLU.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5s-ghost.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5s-transformer.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5s6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/hub/yolov5x6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/segment/yolov5l-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/segment/yolov5m-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/segment/yolov5n-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/segment/yolov5s-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/segment/yolov5x-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/tf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/yolo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/yolov5l.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/yolov5m.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/yolov5n.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/yolov5s.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/models/yolov5x.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/oghorz.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/ogverts.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/pickedHorizontals.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/pickedVerticals.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/predict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/pyproject.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/runs/exp/image_0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/runs/exp2/image_0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/segment/predict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/segment/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/segment/tutorial.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/segment/val.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/testTop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/tutorial.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/activations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/augmentations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/autoanchor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/autobatch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/aws/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/aws/mime.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/aws/resume.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/aws/userdata.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/callbacks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/dataloaders.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/docker/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/docker/Dockerfile-arm64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/docker/Dockerfile-cpu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/downloads.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/flask_rest_api/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/flask_rest_api/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/flask_rest_api/example_request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/flask_rest_api/restapi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/general.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/google_app_engine/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/google_app_engine/additional_requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/google_app_engine/app.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/clearml/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/clearml/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/clearml/clearml_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/clearml/hpo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/comet/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/comet/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/comet/comet_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/comet/hpo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/comet/optimizer_config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/wandb/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loggers/wandb/wandb_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/metrics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/plots.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/segment/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/segment/augmentations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/segment/dataloaders.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/segment/general.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/segment/loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/segment/metrics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/segment/plots.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/torch_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/utils/triton.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../check4mate (python app)/val.py" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/chessapp/backend/Board4.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/chessapp/backend/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/static/chessapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/static/chessapp/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/board_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/board_detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/export.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/models/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/experimental.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/models/experimental.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/tf.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/models/tf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/augmentations.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/augmentations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/autoanchor.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/autoanchor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/dataloaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/dataloaders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/downloads.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/downloads.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/general.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/general.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/torch_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/backend/utils/torch_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/chessapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +70,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/mysite/chessapp/backend" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/mysite/chessapp/static/chessapp/images" />
       <recent name="$PROJECT_DIR$/mysite/chessapp/static/chessapp" />
       <recent name="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/images" />

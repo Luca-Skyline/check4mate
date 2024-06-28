@@ -3,11 +3,14 @@
 import cv2
 import numpy as np
 import math
+import os
 
-from predict import run
+from .predict import run
 
 import requests
 import json
+
+from django.core.files.base import ContentFile
 
 LICHESS_API_TOKEN = 'lip_WbnhfLxNWMD7Z50Rqu0C'
 
@@ -31,14 +34,29 @@ def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
 
 
 
-def board_to_fen(image, white_turn=True):
+def board_to_fen(image_data, white_turn=True):
 
-    print('startcode')
+    # img = ContentFile(image_data, 'capture.png')
+    #
+    # # Convert ContentFile to a NumPy array
+    # image_array = np.frombuffer(img.read(), np.uint8)
+    #
+    # # Decode the NumPy array into an OpenCV image
+    # cv2_image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
 
-    img = cv2.imread(image)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Define the image filename
+    image_filename = "Board4.JPG"
+
+    # Construct the absolute path to the image
+    image_path = os.path.join(script_dir, image_filename)
+
+    # Read the image
+    cv2_image = cv2.imread(image_path)
 
     # Convert the img to grayscale
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(cv2_image, cv2.COLOR_BGR2GRAY)
 
     # Apply edge detection method on the image
     edges = cv2.blur(gray.copy(), (5,5))
@@ -87,7 +105,7 @@ def board_to_fen(image, white_turn=True):
 
     # All the changes made in the input image are finally
     # written on a new image houghlines.jpg
-    all_lines = img.copy()
+    all_lines = cv2_image.copy()
     for line in linesV + linesH:
         cv2.line(all_lines, line[0], line[1], (255, 0, 0), 6)
     cv2.imwrite('houghlines.jpg', all_lines)
@@ -107,7 +125,7 @@ def board_to_fen(image, white_turn=True):
     del tempH[-1]  # take out that 0,0,0,0
     linesH = tempH
 
-    all_lines = img.copy()
+    all_lines = cv2_image.copy()
     for line in linesH:
         cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
     cv2.imwrite('pickedHorizontals.jpg', all_lines)
@@ -125,7 +143,7 @@ def board_to_fen(image, white_turn=True):
     del tempV[-1]
     linesV = tempV
 
-    all_lines = img.copy()
+    all_lines = cv2_image.copy()
     for line in linesV:
         cv2.line(all_lines, line[0], line[1], (255, 0, 0), 10)
     cv2.imwrite('pickedVerticals.jpg', all_lines)
@@ -160,9 +178,9 @@ def board_to_fen(image, white_turn=True):
             del linesV[len(linesV) - 1]
 
     for line in linesV + linesH:
-        cv2.line(img, line[0], line[1], (255, 0, 0), 6)
+        cv2.line(cv2_image, line[0], line[1], (255, 0, 0), 6)
 
-    cv2.imwrite('linesDetected.jpg', img)
+    cv2.imwrite('linesDetected.jpg', cv2_image)
 
     intersection_points = []  # will end up being a 2D list of "2D points" (therefore technically a 3D list)
 
@@ -186,9 +204,9 @@ def board_to_fen(image, white_turn=True):
 
             intersection_points[x_line].append(
                 get_intersection(x1, x2, x3, x4, y1, y2, y3, y4))
-            cv2.circle(img, intersection_points[x_line][y_line], 10, (0, 0, 255), -1)
+            cv2.circle(cv2_image, intersection_points[x_line][y_line], 10, (0, 0, 255), -1)
 
-    cv2.imwrite('intersections.jpg', img)
+    cv2.imwrite('intersections.jpg', cv2_image)
 
 
     # 0  1  2  3  4  5  6  7

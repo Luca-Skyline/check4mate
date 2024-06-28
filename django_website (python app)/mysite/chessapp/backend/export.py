@@ -67,10 +67,10 @@ if str(ROOT) not in sys.path:
 if platform.system() != "Windows":
     ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-from models.experimental import attempt_load
-from models.yolo import ClassificationModel, Detect, DetectionModel, SegmentationModel
-from utils.dataloaders import LoadImages
-from utils.general import (
+from .models.experimental import attempt_load
+from .models.yolo import ClassificationModel, Detect, DetectionModel, SegmentationModel
+from .utils.dataloaders import LoadImages
+from .utils.general import (
     LOGGER,
     Profile,
     check_dataset,
@@ -85,7 +85,7 @@ from utils.general import (
     url2file,
     yaml_save,
 )
-from utils.torch_utils import select_device, smart_inference_mode
+from .utils.torch_utils import select_device, smart_inference_mode
 
 MACOS = platform.system() == "Darwin"  # macOS environment
 
@@ -471,7 +471,7 @@ def export_tflite(
     converter.target_spec.supported_types = [tf.float16]
     converter.optimizations = [tf.lite.Optimize.DEFAULT]
     if int8:
-        from models.tf import representative_dataset_gen
+        from .models.tf import representative_dataset_gen
 
         dataset = LoadImages(check_dataset(check_yaml(data))["train"], img_size=imgsz, auto=False)
         converter.representative_dataset = lambda: representative_dataset_gen(dataset, ncalib=100)
