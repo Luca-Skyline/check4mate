@@ -46,6 +46,9 @@ p{
   cursor: default;
   line-height: 1.8;
   font-family: Optima, sans-serif;
+  margin-left: 10%
+  margin-right: 10%;
+  font-size: 14;
 }
 
 p2{
