@@ -19,13 +19,13 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 # Import the desired function
-from board_detection import board_to_fen
+from board_detection import board_to_fen, run_analysis
 
 # Create your views here.
 
 @login_required()
-def index(request):
-    return render(request, 'chessapp/index.html', {})
+def camera(request):
+    return render(request, 'chessapp/camera.html', {})
 
 @login_required()
 def save_image(request):
@@ -38,19 +38,25 @@ def save_image(request):
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
 @login_required()
+def bonet(request):
+    return render(request, 'chessapp/bonet.html')
+
+@login_required()
 def analysis(request):
     encoded_image_data = request.session.get('image_data')
     if encoded_image_data:
         image_data = base64.b64decode(encoded_image_data)
         image = ContentFile(image_data, 'capture.png')
+        fen = board_to_fen(image_data)
+        best_move = run_analysis(fen)
 
         context = {
-           'image': image
+            'image': image,
+            'fen': fen,
+            'best_move': best_move
         }
-
-        print(board_to_fen(image_data))
     else:
-        image = None
+        context = None
     return render(request, 'chessapp/analysis.html', context)
 
 
@@ -65,6 +71,10 @@ def profile(request):
 
 
     return render(request, 'chessapp/profile.html', context=context)
+
+@login_required()
+def index(request):
+    return render(request, 'chessapp/index.html')
 
 def logout_view(request):
     logout(request)

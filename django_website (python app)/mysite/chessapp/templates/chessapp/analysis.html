@@ -16,7 +16,13 @@
 
     {% block content %}
     <img src="data:image/png;base64,{{ image.read|b64encode }}" alt="Image" class="displayed_image">
+
+    <p>Best Move(s): {{ best_moves }} </p> <br>
+    <p>FEN: {{ fen }} </p>
+
     {% endblock %}
+
+
 
 </body>
 

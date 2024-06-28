@@ -1,38 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Check4Mate</title>
-  <meta name="csrf-token" content="{% csrf_token %}">
-
-
-
-  <!-- main css -->
-  <link rel="stylesheet" href="{% static 'chessapp/style.css' %}">
-	<link rel="shortcut icon" type="image/x-icon" href="{% static 'chessapp/images/logo.png' %}" />
+    <meta charset="UTF-8">
+    <title>Learning 4 Life</title>
+    <link rel="stylesheet" href="{% static 'chessapp/style.css' %}">
 </head>
-
 <body>
-    <div id="video-container">
-        <video id="video" autoPlay playsinline></video>
-        <div id="mask">
-            <p>Place Chessboard in Square</p>
-        </div>
-    </div>
-    <canvas id="canvas" style="display: none;"> </canvas>
-
-    <button class="cambutton" id="captureButton"><img src="{% static 'chessapp/images/Camera.png' %}" width="150px"></button>
-
-    <div class="navbar" id="navbar">
-        <a href="" class="navbutton" style="transform: translate(-300px, -115px);"><img src="{% static 'chessapp/images/Camera.png' %}" width="100px"></a>
-        <a href="/profile" class="navbutton" style="transform: translate(-50px, -120px);"><img src="{% static 'chessapp/images/House.png' %}" width="100px"></a>
-        <a href="" class="navbutton" style="transform: translate(200px, -120px);"><img src="{% static 'chessapp/images/Share.png' %}" width="100px"></a>
-    </div>
-
-
-
-    <script type="text/javascript" src="{% static 'chessapp/video_camera.js' %}"></script>
+  <h1>Learning 4 Life</h1>
+  <p>Below are two activities. The first is a game that teaches you bones and quizzes your knowledge on them in a fun way. This teaches you memorization and recognition skills. The second is a scanning tool that assists you in physical chess games, improving your logic and problem-solving.</p>
+  <a href="/bonet" class="regbutton">Bonet</a>
+  <a href="/camera" class="regbutton">Check4Mate</a>
 </body>
-
 </html>

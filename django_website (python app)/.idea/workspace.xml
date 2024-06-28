@@ -5,165 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5adf658-9534-4bbc-b8b9-64d6bdfb9ce9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/board4.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/bonet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/camera.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/Board4.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/CITATION.cff" beforeDir="false" afterPath="$PROJECT_DIR$/CITATION.cff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/ChessPieceDetector.pt" beforeDir="false" afterPath="$PROJECT_DIR$/ChessPieceDetector.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/ChessPieceDetector2.pt" beforeDir="false" afterPath="$PROJECT_DIR$/ChessPieceDetector2.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/ChessPieceDetector3.pt" beforeDir="false" afterPath="$PROJECT_DIR$/ChessPieceDetector3.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/benchmarks.py" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/best.pt" beforeDir="false" afterPath="$PROJECT_DIR$/best.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/board1.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/board1.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/board2.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/board2.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/board3.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/board3.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/board_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/board_detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/classify/predict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/classify/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/classify/tutorial.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/classify/val.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/Argoverse.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/GlobalWheat2020.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/ImageNet.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/ImageNet10.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/ImageNet100.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/ImageNet1000.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/Objects365.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/SKU-110K.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/VOC.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/VisDrone.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/coco.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/coco128-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/coco128.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/hyps/hyp.Objects365.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/hyps/hyp.VOC.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/hyps/hyp.no-augmentation.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/hyps/hyp.scratch-high.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/hyps/hyp.scratch-low.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/hyps/hyp.scratch-med.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/images/bus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/images/zidane.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/scripts/download_weights.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/scripts/get_coco.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/scripts/get_coco128.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/scripts/get_imagenet.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/scripts/get_imagenet10.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/scripts/get_imagenet100.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/scripts/get_imagenet1000.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/data/xView.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/edges.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/edges.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/efficientnet_b0.pt" beforeDir="false" afterPath="$PROJECT_DIR$/efficientnet_b0.pt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/export.py" beforeDir="false" afterPath="$PROJECT_DIR$/export.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/houghlines.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/houghlines.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/hubconf.py" beforeDir="false" afterPath="$PROJECT_DIR$/hubconf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/imgs/square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/intersections.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/intersections.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/linesDetected.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/linesDetected.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/experimental.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/anchors.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov3-spp.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov3-tiny.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov3.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5-bifpn.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5-fpn.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5-p2.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5-p34.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5-p6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5-p7.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5-panet.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5l6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5m6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5n6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5s-LeakyReLU.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5s-ghost.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5s-transformer.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5s6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/hub/yolov5x6.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/segment/yolov5l-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/segment/yolov5m-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/segment/yolov5n-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/segment/yolov5s-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/segment/yolov5x-seg.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/tf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolov5l.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolov5m.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolov5n.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolov5s.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/models/yolov5x.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/oghorz.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/oghorz.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/ogverts.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ogverts.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/pickedHorizontals.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pickedHorizontals.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/pickedVerticals.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pickedVerticals.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/runs/exp/image_0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/runs/exp2/image_0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/segment/predict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/segment/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/segment/tutorial.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/segment/val.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/testTop.png" beforeDir="false" afterPath="$PROJECT_DIR$/testTop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/tutorial.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/activations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/augmentations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/autoanchor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/autobatch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/aws/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/aws/mime.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/aws/resume.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/aws/userdata.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/callbacks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/dataloaders.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/docker/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/docker/Dockerfile-arm64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/docker/Dockerfile-cpu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/downloads.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/flask_rest_api/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/flask_rest_api/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/flask_rest_api/example_request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/flask_rest_api/restapi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/general.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/google_app_engine/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/google_app_engine/additional_requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/google_app_engine/app.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/clearml/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/clearml/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/clearml/clearml_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/clearml/hpo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/comet/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/comet/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/comet/comet_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/comet/hpo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/comet/optimizer_config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/wandb/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loggers/wandb/wandb_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/metrics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/plots.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/segment/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/segment/augmentations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/segment/dataloaders.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/segment/general.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/segment/loss.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/segment/metrics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/segment/plots.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/torch_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/utils/triton.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/backend/val.py" beforeDir="false" afterPath="$PROJECT_DIR$/val.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/chessapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/board_detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgs/square.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/analysis.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/analysis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/chessapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/chessapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/chessapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -194,26 +48,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/lucamarco/Documents/GitHub/check4mate/django_website (python app)/models&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/lucamarco/Documents/GitHub/check4mate/django_website (python app)/models",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/models" />
       <recent name="$PROJECT_DIR$/mysite/chessapp/templates/chessapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysite/chessapp/static/chessapp/bonet" />
+      <recent name="$PROJECT_DIR$/mysite/chessapp/templates/chessapp" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/mysite/chessapp/backend" />
       <recent name="$PROJECT_DIR$/mysite/chessapp/static/chessapp/images" />
-      <recent name="$PROJECT_DIR$/mysite/chessapp/static/chessapp" />
-      <recent name="$PROJECT_DIR$/mysite/chessapp/templates/chessapp/images" />
     </key>
   </component>
   <component name="SharedIndexes">
