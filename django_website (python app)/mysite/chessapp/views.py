@@ -9,11 +9,17 @@ from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import CapturedImage
 from .scripts import trim_image
 from django.http import HttpResponseRedirect
+from django.core.files.base import ContentFile
 import base64
-from .backend.board_detection import board_to_fen
+import sys
+import os
+# Add the directory two levels up to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+# Import the desired function
+from board_detection import board_to_fen
 
 # Create your views here.
 
@@ -36,11 +42,16 @@ def analysis(request):
     encoded_image_data = request.session.get('image_data')
     if encoded_image_data:
         image_data = base64.b64decode(encoded_image_data)
+        image = ContentFile(image_data, 'capture.png')
+
+        context = {
+           'image': image
+        }
 
         print(board_to_fen(image_data))
     else:
         image = None
-    return render(request, 'chessapp/analysis.html', {'image': image})
+    return render(request, 'chessapp/analysis.html', context)
 
 
 @login_required()
