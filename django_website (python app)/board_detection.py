@@ -240,10 +240,10 @@ def board_to_fen(image, white_turn=True):
     for i, my_dict in enumerate(position):
         if "empty" == my_dict[next(iter(my_dict))]:
             position[i] = "empty"
-        # if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
-        #     position[i] = "wp"
-        # elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
-        #     position[i] = "bp"
+        if "wp" in my_dict and my_dict["wp"] > 0.02 and ("bp" not in my_dict or my_dict["wp"] > my_dict["bp"]) and (next(iter(my_dict)) == "wp" or my_dict[(next(iter(my_dict)))] < 0.75):
+            position[i] = "wp"
+        elif "bp" in my_dict and my_dict["bp"] > 0.02 and (next(iter(my_dict)) == "bp" or my_dict[(next(iter(my_dict)))] < 0.75):
+            position[i] = "bp"
         else:
             position[i] = next(iter(my_dict))
 
@@ -282,7 +282,6 @@ def board_to_fen(image, white_turn=True):
         fen += ' b'
 
     fen += ' - - 10 10'
-    print(fen)
     return fen
 
 
@@ -322,7 +321,7 @@ def run_analysis(fen):
 # fen = get_fen('board3.JPG')
 # print(fen)
 # try:
-# best_moves = run_analysis('1nbqkbnr/rppp1ppp/p7/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQk - 2 4')
-# print(best_moves)
+best_moves = run_analysis('1nbqkbnr/rppp1ppp/p7/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQk - 2 4')
+print(best_moves)
 # except Exception as e:
 #     print(e)
