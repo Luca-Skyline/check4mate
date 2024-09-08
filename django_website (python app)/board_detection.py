@@ -8,7 +8,6 @@ from predict import run
 
 import requests
 import json
-import os
 
 LICHESS_API_TOKEN = 'lip_WbnhfLxNWMD7Z50Rqu0C'
 
@@ -34,19 +33,9 @@ def get_intersection(x1, x2, x3, x4, y1, y2, y3, y4):
 
 def board_to_fen(image, white_turn=True):
 
-    # print('startcode')
-    #
-    # img = cv2.imread(image)
+    print('startcode')
 
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Define the image filename
-    image_filename = "board4.JPG"
-
-    # Construct the absolute path to the image
-    image_path = os.path.join(script_dir, image_filename)
-
-    img = cv2.imread(image_path)
+    img = cv2.imread(image)
 
     # Convert the img to grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -227,13 +216,8 @@ def board_to_fen(image, white_turn=True):
 
         # Apply Perspective Transform Algorithm
         matrix = cv2.getPerspectiveTransform(pts1, pts2)
-        my_source = os.path.join(script_dir, 'imgs/square.jpg')
-
-        cv2.imwrite(my_source, cv2.warpPerspective(gray, matrix, (224, 224)))
-
-        my_weights = os.path.join(script_dir, 'ChessPieceDetector.pt')
-
-        position.append(run(weights=my_weights, source=my_source))
+        cv2.imwrite('imgs/square.jpg', cv2.warpPerspective(gray, matrix, (224, 224)))
+        position.append(run(weights='ChessPieceDetector3.pt', source="imgs/square.jpg"))
 
     #print(position)
 
@@ -295,7 +279,7 @@ def get_fen(image):
 # fish = stockfish.Stockfish(path="/usr/local/Cellar/stockfish")
 
 def run_analysis(fen):
-    url = 'https://lichess.org/api/user/GlassKnight75'
+    url = 'https://lichess.org/api/cloud-eval'
     headers = {
         'Authorization': f'Bearer {LICHESS_API_TOKEN}',
         'Content-Type': 'application/json'
@@ -316,12 +300,10 @@ def run_analysis(fen):
         raise Exception(f"Error fetching analysis: {response.status_code} {response.text}")
 
 
-
-
-# fen = get_fen('board3.JPG')
-# print(fen)
+fen = get_fen('board3.JPG')
+print(fen)
 # try:
-best_moves = run_analysis('1nbqkbnr/rppp1ppp/p7/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQk - 2 4')
-print(best_moves)
+#     best_moves = run_analysis('rnbqkbnr/1ppp1pp1/p6p/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 4')
+#     print(best_moves)
 # except Exception as e:
 #     print(e)
